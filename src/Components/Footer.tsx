@@ -1,12 +1,17 @@
 import React from 'react';
-import { Container } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
+import sloveniaLogoBlack from '../Source/Icons/Logo-black-slovenia.svg';
 
 const Footer = () => {
 	return (
-		<Container fluid style={{ background: '#212529', color: '#fff' }}>
-			<Container style={{ display: 'flex', justifyContent: 'center', padding: '10px' }}>
-				<p>Web Developer Blog</p>
-			</Container>
+		<Container style={{ background: '#212529', color: '#fff' }}>
+			<Row>
+				<Col> <a href="#">
+                <img src={sloveniaLogoBlack} alt="WebDev Blog Logo" width="200" height="60" />
+              </a></Col>
+				<Col>2 of 3</Col>
+				<Col>3 of 3</Col>
+			</Row>
 		</Container>
 	);
 };

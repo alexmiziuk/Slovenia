@@ -19,57 +19,69 @@ const BayanStyles = styled.div`
 	margin: 0 auto;
 	@media (max-width: 1400px) {
 		width: 92%;
-			}
+		}
 	@media (max-width: 1388px) {
 		width: 94%;
-			}
+		}
 	@media (max-width: 1199px) {
 		width: 99%;
-			}
+		}
 	@media (max-width: 1188px) {
 		width: 100%;
-			}
+		}
 	&-title {
 		font-weight: 600;
 		font-size: 42px;
 		text-align: center;
 		line-height: 54px;
 		color: #786f6f;
-	}
+		}
 	&-item {
-		display: flex;
+		display: flex !important;
 		flex-direction: row;
-		
-	}
-	&-header {
-		writing-mode: vertical-lr;
-	}
+		}
 	&-button {
+		position: relative;
 		flex-direction: column;
-		
 		background-color: blue;
 		color: white;
 		height: 549px;
+		width: 99px;
 		font-weight: 400!important;
-    	font-size: 18px!important;
-    	line-height: 30px!important;
+		font-size: 18px!important;
+		line-height: 30px!important;
 		&:hover {
 			background-color: #0a0a62;
 		}
 		&:focus {
-			box-shadow: none;
+		box-shadow: none;
 		}
 		&[aria-expanded="true"] {
 			background-color: #c48106;
+		}
+		&:after {
+		content: ">";
+		position: absolute;
+		top: 36%;
+		left: 53%;
+		background-image: none;
+		font-size: 27px;
+		font-weight: 300 !important;
+		transform: rotate(-180deg);
+		color: white;
+		}
+		&:not(.collapsed)::after {
+			background-image: none;
+			color: white;
+			transform: rotate(0deg);
+			left: 56%;
+			top: 34%;
 		}
 	}
 	&-img {
 		width: 100%;
 		max-height: 444px !important;
 		object-fit: cover;
-	}
-   &-header {
-		writing-mode: vertical-lr;
 	}
 	&-contain {
 		display: inline-block;
@@ -80,34 +92,29 @@ const BayanStyles = styled.div`
 	&-bold {
 		font-weight: 700 !important;
 	}
-	&-button {
-		&:after {
-		content: ">";
-		background-image: none;
-		font-size: 27px;
-		font-weight: 300 !important;
-		transform: rotate(-270deg);
-	   }
-	}
-	&-button {
-		&:not(.collapsed)::after {
-			background-image: none;
-			transform: rotate(-90deg);
-			margin-top: 15px;
-		}
-	}
 	&-wrapper {
 		display: flex; 
 		flex-direction: row; 
 	}
+	&-button-name {
+		writing-mode: vertical-lr;
+		padding-top: 170px;
+		padding-right: 43%;
+		color: white;
+		
+	}
 }
+
 @media (max-width: 992px) {
 	.accordion {
 		&-title {
 			margin-bottom: 70px;
 		}
-		&-header {
+		&-button-name {
 			writing-mode: initial;
+			padding-top: initial;
+			padding-right: initial;
+			
 		}
 		&-item {
 			display: flex;
@@ -120,19 +127,16 @@ const BayanStyles = styled.div`
 		&-button {
 			height: 70px !important;
 			flex-direction: row;
-		}
-		&-button {
+			width: 100%;
 			&:after {
-			content: ">";
-			transform: rotate(-90deg);
-			margin-right: 13px;
+				content: ">";
+				transform: rotate(-90deg);
+				margin-right: 13px;
 		}
-	}
-	&-button {
-		&:not(.collapsed)::after {
+			&:not(.collapsed)::after {
 			transform: rotate(90deg);
 			margin-top: initial;
-		 margin-right: 0px;
+		 	margin-right: 0px;
 		}
 	}
 }
@@ -144,9 +148,6 @@ const BayanStyles = styled.div`
 		}
 	}
 }
-
-
-
 
 `
 
@@ -162,7 +163,7 @@ const Bayan = () => {
 						<Col>
 							<Accordion defaultActiveKey="0" className='accordion-wrapper'>
 								<Accordion.Item eventKey="0" >
-									<Accordion.Header >Kranjska klobasa</Accordion.Header>
+									<Accordion.Header ><div className='accordion-button-name'>Kranjska klobasa</div></Accordion.Header>
 									<Accordion.Body>
 										<Row>
 											<Col>
@@ -181,7 +182,7 @@ const Bayan = () => {
 									</Accordion.Body>
 								</Accordion.Item>
 								<Accordion.Item eventKey="1">
-									<Accordion.Header>Kraški pršut</Accordion.Header>
+									<Accordion.Header><div className='accordion-button-name'>Kraški pršut</div></Accordion.Header>
 									<Accordion.Body>
 										<Row>
 											<Col>
@@ -201,7 +202,7 @@ const Bayan = () => {
 									</Accordion.Body>
 								</Accordion.Item>
 								<Accordion.Item eventKey="2">
-									<Accordion.Header>Čompe s skuto</Accordion.Header>
+									<Accordion.Header><div className='accordion-button-name'>Čompe s skuto</div></Accordion.Header>
 									<Accordion.Body>
 										<Row>
 											<Col>
@@ -220,7 +221,7 @@ const Bayan = () => {
 									</Accordion.Body>
 								</Accordion.Item>
 								<Accordion.Item eventKey="3">
-									<Accordion.Header>Jota</Accordion.Header>
+									<Accordion.Header><div className='accordion-button-name'>Jota</div></Accordion.Header>
 									<Accordion.Body>
 										<Row>
 											<Col>
@@ -238,7 +239,7 @@ const Bayan = () => {
 									</Accordion.Body>
 								</Accordion.Item>
 								<Accordion.Item eventKey="4">
-									<Accordion.Header>Potica</Accordion.Header>
+									<Accordion.Header><div className='accordion-button-name'>Potica</div></Accordion.Header>
 									<Accordion.Body>
 										<Row>
 											<Col>
@@ -257,7 +258,7 @@ const Bayan = () => {
 									</Accordion.Body>
 								</Accordion.Item>
 								<Accordion.Item eventKey="5">
-									<Accordion.Header>Prekmurska gibanica</Accordion.Header>
+									<Accordion.Header><div className='accordion-button-name'>Prekmurska gibanica</div></Accordion.Header>
 									<Accordion.Body>
 										<Row>
 											<Col>

@@ -22,7 +22,7 @@ const App: React.FC = () => {
 			<Route path="/about" element={<Abouts />} /> 
 		 </Routes>
 		</Router>
-			{/* <Footer /> */}
+		<Footer />
 			</>
 	);
  }
