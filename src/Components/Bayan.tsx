@@ -75,7 +75,7 @@ const BayanStyles = styled.div`
 			color: white;
 			transform: rotate(0deg);
 			left: 56%;
-			top: 34%;
+			top: 33.6%;
 		}
 	}
 	&-img {

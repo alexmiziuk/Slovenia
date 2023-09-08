@@ -129,9 +129,6 @@ const Intro = () => {
 							</Col>
 						</Row>
 					</Container>
-
-
-
 				</section>
 			</IntroStyles>
 
