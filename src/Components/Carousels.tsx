@@ -7,6 +7,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import styled from 'styled-components';
 
+
 import BledLake from '../Source/CarouselImg/Bled-lake.jpg';
 import Ljublana from '../Source/CarouselImg/Ljublana.png';
 import Mountins from '../Source/CarouselImg/Mountins.jpg';
@@ -16,10 +17,6 @@ import Maribor from '../Source/CarouselImg/Maribor.jpg';
 import Ptuj from '../Source/CarouselImg/Ptuj.jpg'
 import Bridge from '../Source/CarouselImg/Bridge.jpg';
 import Piran from '../Source/CarouselImg/Piran.jpg';
-
-
-
-
 
 interface ArrowProps {
 	className?: string;
@@ -74,11 +71,12 @@ const CarouselStyles = styled.div`
 		padding-bottom: 40px;
 		color: #786f6f;
 	}
-	&__block {
+	&__btn {
 		position: relative;
+		border: none;
 	}
 	&__img {
-		width: 98%;
+		width: 100%;
 		height: 600px;
 		object-fit: cover;
 		margin: 0 auto;
@@ -117,16 +115,20 @@ const CarouselStyles = styled.div`
 
 
 `;
+interface CarouselsProps {
+	getAllTextsOfSite: (key: string) => string;
+}
 
-export default class MultipleItems extends Component {
-	render() {
-		const settings = {
+class Carousels extends Component<CarouselsProps>{
+	settings: any;
+	constructor(props: CarouselsProps) {
+		super(props);
+		this.settings = {
 			dots: true,
 			infinite: true,
 			speed: 500,
 			slidesToShow: 3,
 			slidesToScroll: 1,
-
 			nextArrow: <SampleNextArrow />,
 			prevArrow: <SamplePrevArrow />,
 			responsive: [
@@ -135,70 +137,79 @@ export default class MultipleItems extends Component {
 					settings: {
 						slidesToShow: 2,
 						slidesToScroll: 2,
-						initialSlide: 2
-					}
+						initialSlide: 2,
+					},
 				},
 				{
 					breakpoint: 576,
 					settings: {
 						slidesToShow: 1,
-						slidesToScroll: 1
-					}
-				}
-			]
+						slidesToScroll: 1,
+					},
+				},
+			],
 		};
+	}
+
+	redirectToAnotherComponent = () => {
+		// относительный путь к компоненту
+		window.location.href = '../users';
+	};
+	render() {
+		const { getAllTextsOfSite } = this.props; // Получаем getAllTextsOfSite из пропсов
+
 		return (
-			<>
-				<CarouselStyles>
-					<section className="carousel">
-						<Container >
-							<Row>
-								<Col>
-									<h2 className='carousel__item'> Словенія: Віртуальний тур </h2>
-									<Slider {...settings} >
-										<div className='carousel__block'>
-											<img src={BledLake} alt="" className="carousel__img" />
-											<p className="carousel__img-name">Блед</p>
-										</div>
-										<div className='carousel__block'>
-											<img src={Ljublana} alt="" className="carousel__img" />
-											<p className="carousel__img-name">Любляна</p>
-										</div>
-										<div className='carousel__block'>
-											<img src={Mountins} alt="" className="carousel__img" />
-											<p className="carousel__img-name">Debela peč</p>
-										</div>
-										<div className='carousel__block'>
-											<img src={KochevjeChurch} alt="" className="carousel__img" />
-											<p className="carousel__img-name">Кочев&apos;є</p>
-										</div>
-										<div className='carousel__block'>
-											<img src={LakeNearItaly} alt="" className="carousel__img" />
-											<p className="carousel__img-name">Rabeljsko Jezero</p>
-										</div>
-										<div className='carousel__block'>
-											<img src={Maribor} alt="" className="carousel__img" />
-											<p className="carousel__img-name">Марибор</p>
-										</div>
-										<div className='carousel__block'>
-											<img src={Ptuj} alt="" className="carousel__img" />
-											<p className="carousel__img-name">Птуй</p>
-										</div>
-										<div className='carousel__block'>
-											<img src={Bridge} alt="" className="carousel__img" />
-											<p className="carousel__img-name">Міст <br></br>Солкан</p>
-										</div>
-										<div className='carousel__block'>
-											<img src={Piran} alt="" className="carousel__img" />
-											<p className="carousel__img-name">Піран</p>
-										</div>
-									</Slider>
-								</Col>
-							</Row>
-						</Container>
-					</section>
-				</CarouselStyles>
-			</>
+			<CarouselStyles >
+				<section className="carousel">
+					<Container >
+						<Row>
+							<Col>
+								<h2 className='carousel__item' id='tour'> {getAllTextsOfSite('carouselTitle')} </h2>
+								<Slider {...this.settings} >
+									<button onClick={this.redirectToAnotherComponent} className='carousel__btn'>
+										<img src={BledLake} alt="" className="carousel__img" />
+										<p className="carousel__img-name">Блед</p>
+									</button>
+									<button className='carousel__btn'>
+										<img src={Ljublana} alt="" className="carousel__img" />
+										<p className="carousel__img-name">Любляна</p>
+									</button>
+									<button className='carousel__btn'>
+										<img src={Mountins} alt="" className="carousel__img" />
+										<p className="carousel__img-name">Debela peč</p>
+									</button>
+									<button className='carousel__btn'>
+										<img src={KochevjeChurch} alt="" className="carousel__img" />
+										<p className="carousel__img-name">Кочев&apos;є</p>
+									</button>
+									<button className='carousel__btn'>
+										<img src={LakeNearItaly} alt="" className="carousel__img" />
+										<p className="carousel__img-name">Rabeljsko Jezero</p>
+									</button>
+									<button className='carousel__btn'>
+										<img src={Maribor} alt="" className="carousel__img" />
+										<p className="carousel__img-name">Марибор</p>
+									</button>
+									<button className='carousel__btn'>
+										<img src={Ptuj} alt="" className="carousel__img" />
+										<p className="carousel__img-name">Птуй</p>
+									</button>
+									<button className='carousel__btn'>
+										<img src={Bridge} alt="" className="carousel__img" />
+										<p className="carousel__img-name">Міст <br></br>Солкан</p>
+									</button>
+									<button className='carousel__btn'>
+										<img src={Piran} alt="" className="carousel__img" />
+										<p className="carousel__img-name">Піран</p>
+									</button>
+								</Slider>
+							</Col>
+						</Row>
+					</Container>
+				</section>
+			</CarouselStyles>
 		);
 	}
 }
+
+export default Carousels;

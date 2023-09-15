@@ -12,15 +12,20 @@ import CustomJumbotron from './Components/CustomJumbotron';
 import ocean from '../src/Source/img/solnca_nad_morem.jpg'
 
 
-const Home: React.FunctionComponent = () => {
+const Home: React.FunctionComponent<{
+	
+	getAllTextsOfSite: (key: string) => string;
+	
+	
+}>= ({ getAllTextsOfSite }) => {
 	return (
 		<>
 			{/* <Slider /> */}
-			<Intro />
-			<About />
-			<Carousels />
-			<Cards />
-			<Bayan />
+			<Intro getAllTextsOfSite={getAllTextsOfSite} />
+			<About getAllTextsOfSite={getAllTextsOfSite} />
+			<Carousels getAllTextsOfSite={getAllTextsOfSite}/>
+			<Cards getAllTextsOfSite={getAllTextsOfSite}/>
+			<Bayan getAllTextsOfSite={getAllTextsOfSite}/>
 		</>
 	);
 };

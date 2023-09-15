@@ -7,7 +7,7 @@ const Users: React.FC = () => {
 	return (
 		<Container>
 			<Table striped>
-				<thead>
+				<thead id="table">
 					<tr>
 						<th>#</th>
 						<th>First Name</th>

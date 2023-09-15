@@ -3,6 +3,7 @@ import CustomJumbotron from './Components/CustomJumbotron';
 
 
 const Abouts: React.FC = () => {
+	
 	return (
 	  <>
 		 <CustomJumbotron  />

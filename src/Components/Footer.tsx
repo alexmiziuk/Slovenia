@@ -127,8 +127,11 @@ const FooterStyled = styled.div`
 }
 
 `
-
-const Footer = () => {
+interface FooterProps {
+	getAllTextsOfSite: (key: string) => string;
+}
+ 
+const Footer: React.FunctionComponent<FooterProps> = ({ getAllTextsOfSite }) => {
 	return (
 		<FooterStyled >
 			<footer className="footer">
@@ -139,80 +142,78 @@ const Footer = () => {
 								<img src={sloveniaLogoBlack} alt="WebDev Blog Logo" width="200" height="60" className='footer-logo'/>
 							</a>
 							<p className="footer-text">
-								Цей веб-сайт створений з метою ознайомлення з культурною спадщиною Словенії,
-								її звичаями, архітектурою та природними пам&apos;ятками. Він також є частиною мого портфоліо,
-								що допоможе познайомити потенційного замовника або роботодавця з моїми можливостями та навичками.
+							{getAllTextsOfSite('footerText')}
 							</p>
 						</Col>
 						<Col>
 							<h2 className="footer-title">
-								Корисні посилання
+							{getAllTextsOfSite('footerTitleOne')}
 							</h2>
 							<ul className='footer-list'>
 								<li className='footer-item'>
 									<a href="https://slovenia.mfa.gov.ua/" className="footer-link">
-										Посольство України в Словенії
+									{getAllTextsOfSite('footerLinkOne')}
 									</a>
 								</li>
 								<li className='footer-item'>
 									<a href="https://www.avto.net/" className="footer-link">
-										Продаж авто в Словенії
+									{getAllTextsOfSite('footerLinkTwo')}
 									</a>
 								</li>
 								<li className='footer-item'>
 									<a href="https://www.bolha.com/oddaja-stanovanja" className="footer-link">
-										Оренда житла в Словенії
+									{getAllTextsOfSite('footerLinkThree')}
 									</a>
 								</li>
 								<li className='footer-item'>
 									<a href="https://www.nomago.si/avtobusne-vozovnice/vozni-red" className="footer-link">
-										Розклад міжміських автобусів
+									{getAllTextsOfSite('footerLinkFour')}
 									</a>
 								</li>
 								<li className='footer-item'>
 									<a href="https://potniski.sz.si/en/" className="footer-link">
-										Розклад поїздів
+									{getAllTextsOfSite('footerLinkFive')}
 									</a>
 								</li>
 							</ul>
 						</Col>
 						<Col>
 							<h2 className="footer-title">
-								Контакти
+							{getAllTextsOfSite('footerTitleTwo')}
 							</h2>
 							<ul className='footer-list'>
 								<li className='footer-contact'>
-									Поліція:&nbsp;
+								{getAllTextsOfSite('footerContactOne')}&nbsp;
 									<a href="tel:113" className="footer-link footer-link-telephone">
 										113
 									</a>
 								</li>
 								<li className='footer-contact'>
-									Анонімний телефон поліції:&nbsp;
+								{getAllTextsOfSite('footerContactTwo')}&nbsp;
 									<a href="tel:+386 080 12 00" className="footer-link footer-link-telephone">
 										+386 080 12 00
 									</a>
 								</li>
 								<li className='footer-contact'>
-									Швидка допомога і пожежна:&nbsp;
+								{getAllTextsOfSite('footerContactThree')}&nbsp;
 									<a href="tel:112" className="footer-link footer-link-telephone">
 										112
 									</a>
 								</li>
 								<li className='footer-contact'>
-									Cкарги та пропозиції (для туристів):&nbsp;
+								{getAllTextsOfSite('footerContactFour')}&nbsp;
 									<a href="tel:+3860801900" className="footer-link footer-link-telephone">
 										+386 080 1900
 									</a>
 								</li>
 								<li className='footer-contact'>
-									Посольство України у Словенії:&nbsp;
+								{getAllTextsOfSite('footerContactFive')}&nbsp;
 									<a href="tel:+386(1)4210604" className="footer-link footer-link-telephone">
 										+386 (1) 421 06 04
 									</a>
 								</li>
 								<li className='footer-contact'>
-									Гаряча лінія Посольства:&nbsp;
+								{getAllTextsOfSite('footerContactSix')}&nbsp;
 									<a href="tel:+38631702765" className="footer-link footer-link-telephone">
 										+386 31 702 765
 									</a>
@@ -221,7 +222,7 @@ const Footer = () => {
 						</Col>
 						<Col>
 							<h2 className="footer-title">
-								Спільноти українців
+							{getAllTextsOfSite('footerTitleCommunity')}
 							</h2>
 							<Row style={{ margin: '23px -12px 7px ' }}>
 								<a href="https://www.facebook.com/groups/ukrainiansinslovenia/?locale=uk_UA" className="intro__btn">

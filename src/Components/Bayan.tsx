@@ -2,15 +2,14 @@ import Accordion from 'react-bootstrap/Accordion';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import styled from 'styled-components';
+
 import KranjskaKlobasa from '../Source/Accordion/Odprtakuhinja-kranjska.jpg';
 import KraškiPrsut from '../Source/Accordion/kraski-prsut.jpg';
 import CompesSkuto from '../Source/Accordion/Odprtakuhinja-compe-krompir.jpg';
 import Jota from '../Source/Accordion/jota.jpg';
 import Potica from '../Source/Accordion/potica.jpg';
 import PrekmurskaGibanica from '../Source/Accordion/prekmurska-gibanica.jpg';
-
-
-import styled from 'styled-components';
 
 const BayanStyles = styled.div`
 .accordion {
@@ -43,7 +42,7 @@ const BayanStyles = styled.div`
 	&-button {
 		position: relative;
 		flex-direction: column;
-		background-color: blue;
+		background-color: #3a579a;
 		color: white;
 		height: 549px;
 		width: 99px;
@@ -51,13 +50,16 @@ const BayanStyles = styled.div`
 		font-size: 18px!important;
 		line-height: 30px!important;
 		&:hover {
-			background-color: #0a0a62;
+			background-color: #324b87;
 		}
 		&:focus {
 		box-shadow: none;
 		}
 		&[aria-expanded="true"] {
 			background-color: #c48106;
+			&:hover {
+				background-color: #bb7c08;
+			};
 		}
 		&:after {
 		content: ">";
@@ -70,7 +72,7 @@ const BayanStyles = styled.div`
 		transform: rotate(-180deg);
 		color: white;
 		}
-		&:not(.collapsed)::after {
+		&:not(.collapsed):after {
 			background-image: none;
 			color: white;
 			transform: rotate(0deg);
@@ -151,13 +153,20 @@ const BayanStyles = styled.div`
 
 `
 
-const Bayan = () => {
+const Bayan: React.FunctionComponent<{
+	
+	getAllTextsOfSite: (key: string) => string;
+	
+	
+// eslint-disable-next-line react/prop-types
+}> = ({getAllTextsOfSite}) => {
+	
 	return (
 		<BayanStyles>
 			<section className='accordion'>
 				<Container>
 					<h2 className="accordion-title">
-						Національні страви Словенії
+					{getAllTextsOfSite('bayanTitle')}
 					</h2>
 					<Row>
 						<Col>
@@ -173,9 +182,8 @@ const Bayan = () => {
 										<Row>
 											<Col>
 												<p className="accordion-contain">
-													<span className="accordion-bold">Kranjska klobasa</span> - свиняча ковбаса, удостоєна звання «шедевр національного значення».
-													Щороку у громаді Медводі проходить фестиваль краньської ковбаси.
-													Традиційно цю страву подають із кислою капустою.
+													<span className="accordion-bold">Kranjska klobasa</span>
+													{getAllTextsOfSite('bayanOne')}
 												</p>
 											</Col>
 										</Row>
@@ -192,10 +200,8 @@ const Bayan = () => {
 										<Row>
 											<Col>
 												<p className="accordion-contain">
-													<span className="accordion-bold">Kraški pršut</span> – в&apos;ялений свинячий окіст. Словенці вважають,
-													що вітер бору та піранська сіль особливим чином впливають на м&apos;ясо,
-													надаючи йому неповторного смаку.
-													Краський пршут дозріває 12-16 місяців і набуває рубіново-червоного кольору.
+													<span className="accordion-bold">Kraški pršut</span>
+													{getAllTextsOfSite('bayanTwo')}
 												</p>
 											</Col>
 										</Row>
@@ -212,9 +218,8 @@ const Bayan = () => {
 										<Row>
 											<Col>
 												<p className="accordion-contain">
-													<span className="accordion-bold">Čompe s skuto</span> – половинки звареної в мундирі картоплі, намазані сирною пастою.
-													На честь цієї нехитрої страви у місті Бовець
-													щороку проводять фестиваль «Чомпарская нічь».
+													<span className="accordion-bold">Čompe s skuto</span>
+													{getAllTextsOfSite('bayanThree')}
 												</p>
 											</Col>
 										</Row>
@@ -231,8 +236,8 @@ const Bayan = () => {
 										<Row>
 											<Col>
 												<p className="accordion-contain">
-													<span className="accordion-bold">Jota</span> – суп із квашеної або свіжої капусти, картоплі, квасолі, сала, перцю та часнику.
-													У кожному регіоні свій набір спецій для йоти, тому цей суп можна куштувати у різних містах.
+													<span className="accordion-bold">Jota</span>
+													{getAllTextsOfSite('bayanFour')}
 												</p>
 											</Col>
 										</Row>
@@ -249,9 +254,8 @@ const Bayan = () => {
 										<Row>
 											<Col>
 												<p className="accordion-contain">
-													<span className="accordion-bold">Potica</span> – рулет із дріжджового тіста. Традиційно його начиняють горіхами та маком,
-													але в кожної господині свій варіант начинки. На ярмаркові прилавки часто
-													викладають потици вагою кілька кілограм, а деяких кафе роблять мініатюрні потицы.
+													<span className="accordion-bold">Potica</span>
+													{getAllTextsOfSite('bayanFive')}
 												</p>
 											</Col>
 										</Row>
@@ -268,9 +272,8 @@ const Bayan = () => {
 										<Row>
 											<Col>
 												<p className="accordion-contain">
-													<span className="accordion-bold">Prekmurska gibanica</span> – дев&apos;ятишаровий пиріг з начинкою з яблук, маку, сиру з цукром та ваніллю, родзинок та горіхів,
-													який готують зазвичай на свята. Схожий пиріг печуть у Сербії та Хорватії,
-													але гібаниця з Прекмур&apos;я найскладніша і найбагатша.
+													<span className="accordion-bold">Prekmurska gibanica</span>
+													{getAllTextsOfSite('bayanSix')}
 												</p>
 											</Col>
 										</Row>

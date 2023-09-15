@@ -105,30 +105,31 @@ const AboutStyles = styled.div`
 
 `
 
-const About = () => {
+const About: React.FunctionComponent<{
+	getAllTextsOfSite: (key: string) => string;
+	}> = ({getAllTextsOfSite}) => {
+	
 	return (
 		<>
 			<AboutStyles>
 				<section className="about">
 					<Container fluid="md">
-						<h2 className="about__item">О Словенії</h2>
+						<h2 className="about__item">{getAllTextsOfSite('aboutTitle')}</h2>
 						<Row>
 							<Col  ><img src={map} alt="slovenia map" className="about__map-image" /></Col>
 							<Col /* xs={2} md={2} lg={6} */>
 								<p className="about__text about__text_top">
-									Словенія - невелика країна, розташована в Центральній Європі. Вона має площу приблизно 20 273 квадратних кілометрів, що робить її однією з найменших країн в Європі.
+								{getAllTextsOfSite('aboutParagraphOne')}
 								</p>
 								<p className="about__text">
-									Столицею Словенії є Любляна - красиве і історичне місто, розташоване в центрі країни. Це місто відоме своїм середньовічним старим центром з замком і багатьма мостами через річку Любляниця.
+								{getAllTextsOfSite('aboutParagraphTwo')}
 								</p>
 								<p className="about__text">
-									Словенія має приблизно 2,1 мільйона жителів. Важливими містами, крім Любляни, є Марібор, Целе, Копер, Крань і Ново Место. Кожне з цих міст має свою унікальну історію та культурну спадщину, приваблюючи туристів з різних куточків світу.
+								{getAllTextsOfSite('aboutParagraphThree')}
 								</p>
 								<p className="about__text about__text_none">
-									Словенія, зі своєю невеликою площею, вражає своєю природною красою, панорамними горами, мальовничими озерами і чарівними селами. Багата культурна спадщина та дружність місцевого населення роблять Словенію привабливим місцем для відвідування та дослідження.
+								{getAllTextsOfSite('aboutParagraphFour')}
 								</p>
-							
-
 							</Col>
 						</Row>
 					</Container>

@@ -15,56 +15,53 @@ const IntroStyles = styled.div`
 	background-repeat: no-repeat;
    background-position: 50%;
    background-size: cover;
-	&__title {
+	&-title {
 		color: white;
 		font-size: 42px;
 		font-weight: 600;
 		line-height: 54px;
 	}
-	&__subitem {
+	&-subitem {
 		margin-top: 20px;
 	}
-	&__text {
+	&-text {
 		color: white;
 		font-size: 18px;
 		font-weight: 400;
 		line-height: 24px;
 	}
-	&__btn {
+	&-btn {
 		display: inline-block;
 		margin-top: 38px;
-		text-decoration: none;
 		font-weight: 400;
 		font-size: 16px;
 		color: white;
-		background-color: #00ae5a;
 		background-color: orange;
 		border-radius: 6px;
+		padding: 10px 20px;
+		border: none;
 		&:hover {
 			background-color: #c48106;
 		  }
 	}
-	&__name {
-		padding: 10px 20px;
 	
-	}
 }
 
 @media (max-width: 769px) {
 	.intro {
-		&__block {
+		&-block {
 			padding-left: 20px;
 		}
-		&__item {
+		&-item {
 			width: 445px;
 		}
-		&__title {
+		&-title {
 			line-height: 53px;
 		}
-		&__subitem {
+		&-subitem {
 			width: 394px;
 		}
-		&__text {
+		&-text {
 			line-height: 29px;
 		}
 	}
@@ -72,27 +69,27 @@ const IntroStyles = styled.div`
 
  @media (max-width: 469px) {
 	.intro {
-		&__block {
+		&-block {
 			padding-left: 10px;
 		}
-		&__item {
+		&-item {
 			width: 300px;
 		}
-		&__title {
+		&-title {
 			font-size: 35px;
 		}
 	
-		&__subitem {
+		&-subitem {
 			width: 280px;
 		}
 	}
 
 	@media (max-width: 385px) {
 		 .intro {
-			&__item {
+			&-item {
 				width: 275px;
 			}
-			&__title {
+			&-title {
 				font-size: 32px;
 				line-height: 48px;
 			}
@@ -101,38 +98,44 @@ const IntroStyles = styled.div`
  }
 `;
 
-const Intro = () => {
+const Intro: React.FunctionComponent<{
+	
+	getAllTextsOfSite: (key: string) => string;
+	
+	
+}> = ({getAllTextsOfSite}) => {
+	const handleScrollToTour = () => {
+		const element = document.getElementById('tour');
+		if (element) {
+			 element.scrollIntoView({ behavior: 'smooth' });
+		}
+  };
 	return (
-		<>
 			<IntroStyles>
 				<section className='intro'>
 					<Container fluid="md">
 						<Row>
 							<Col>
-								<div className="intro__block">
-									<div className="intro__item">
-										<h1 className="intro__title">
-											Ласкаво просимо до чарівної Словенії -
+								<div className="intro-block">
+									<div className="intro-item">
+										<h1 className="intro-title">
+										{getAllTextsOfSite('introTitle')}
 										</h1>
 									</div>
-									<div className="intro__subitem">
-										<p className="intro__text">
-											країни, де поєднуються краса природи, історія та гостинність!
+									<div className="intro-subitem">
+										<p className="intro-text">
+										{getAllTextsOfSite('introSubTitle')}
 										</p>
 									</div>
-									<a href="/#" className="intro__btn">
-										<div className="intro__name">
-											ВІРТУАЛЬНИЙ ТУР
-										</div>
-									</a>
+									<button onClick={handleScrollToTour} className="intro-btn">
+									{getAllTextsOfSite('introButton')}
+									</button>
 								</div>
 							</Col>
 						</Row>
 					</Container>
 				</section>
 			</IntroStyles>
-
-		</>
 	);
 };
 
