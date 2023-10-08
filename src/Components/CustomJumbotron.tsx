@@ -1,40 +1,59 @@
 import React from 'react';
 import { Card, Container } from 'react-bootstrap';
-import ocean from '../Source/img/solnca_nad_morem.jpg';
+import ljubljana from '../Source/CarouselImg/Ljublana.png';
 import styled from 'styled-components';
 
 const Styles = styled.div`
-.jumbo {
-	background: url(${ocean}) no-repeat fixed bottom;
+.invitation {
+	padding: 70px 0 40px 0;
+	background: url(${ljubljana}) no-repeat fixed bottom;
 	background-size: cover;
 	color: #efefef;
-	height: 400px;
 	position: relative;
 	z-index: -2;
-}
-.overlay {
-	background-color: #000;
-	opacity: 0.5;
-	position: absolute;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
-	z-index: -1;
+	&-overlay {
+		background-color: #000;
+		opacity: 0.5;
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		z-index: -1;
+	}
+	&-title {
+		color: white;
+		font-weight: 600;
+		font-weight: 600;
+		line-height: 54px;
+		font-size: 42px;
+	}
+	&-text {
+		margin-top: 30px;
+		color: white;
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 24px;
+		max-width: 700px;
+	}
 }
 `;
 
-const CustomJumbotron = () => {
+const CustomJumbotron: React.FC<{
+	getAllTextsOfSite: (key: string) => string;
+}> = ({ getAllTextsOfSite}) => {
 	return (
 		<Styles>
-			<Card className="jumbo">
+			<Card className="invitation">
 				<Card.Body >
-					<div className="overlay"></div>
+					<div className="invitation-overlay"></div>
 					<Container>
-						<h1>Web Developer Blog</h1>
-						<p>
-							Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse, officia sunt architecto quibusdam vero, hic voluptates quos exercitationem dignissimos, dolorum eum consectetur quod. Amet tempore fugiat quo incidunt, impedit ipsam!
-							Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse, officia sunt architecto quibusdam vero, hic voluptates quos exercitationem dignissimos, dolorum eum consectetur quod. Amet tempore fugiat quo incidunt, impedit ipsam!
+						<h1 className='invitation-title'>{ getAllTextsOfSite('ljubljanaIntroTitle') }</h1>
+						<p className='invitation-text'>
+							{getAllTextsOfSite('ljubljanaIntroTextOne')}
+							<br></br>
+							<br></br>
+							{getAllTextsOfSite('ljubljanaIntroTextTwo')}
 						</p>
 					</Container>
 				</Card.Body>

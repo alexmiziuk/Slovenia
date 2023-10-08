@@ -13,7 +13,7 @@ import Lorn from '../Source/Cards/Lorn.jpg';
 const CardsStyles = styled.div`
 .cards {
 	padding: 70px 0 40px 0;
-	&__title {
+	&-title {
 		font-size: 42px;
 		font-weight: 600;
 		line-height: 54px;
@@ -38,17 +38,18 @@ const CardsStyles = styled.div`
 	}
 	
 	
-	&-title__box {
+	&-title-box {
 		min-height: 49px;
 		
 	}
-	&__btn {
+	&-btn {
 		margin-top: 20px;
 		background-color: orange;
 		font-weight: 400;
 		font-size: 16px;
 		border: none;
 		width: 160px;
+		transition: background-color 0.3s ease;
 		&:hover {
       background-color: #c48106;
 		}
@@ -78,7 +79,7 @@ const CardsStyles = styled.div`
 }
 
 @media (max-width: 991px) {
-	.cards__row {
+	.cards-row {
 	  flex-direction: column;
      }
 	  .mdl-text {
@@ -111,18 +112,20 @@ const Cards: React.FunctionComponent<{
 		<CardsStyles>
 			<section className="cards">
 				<Container >
-					<h2 className="cards__title">
+					<h2 className="cards-title">
 						{getAllTextsOfSite('cardsTitle')}
 					</h2>
 					<Row sm={2} md={2} lg={3} className="g-4">
-						<Col >
+						<Col>
 							<Card style={{ width: '18rem' }} >
 								<Card.Img variant="top" src={Salary} />
 								<Card.Body>
-									<div className="cards-title__box">
+									<div className="cards-title-box">
 										<Card.Title>{getAllTextsOfSite('cardOneTitle')}</Card.Title>
 									</div>
-									<Button onClick={() => handleShow(0)} className='cards__btn'>
+									<Button
+										onClick={() => handleShow(0)}
+										className='cards-btn'>
 										{getAllTextsOfSite('cardsBtn')}
 									</Button>
 									<Modal
@@ -132,14 +135,18 @@ const Cards: React.FunctionComponent<{
 										aria-labelledby="contained-modal-title-vcenter"
 										centered>
 										<Modal.Header closeButton>
-											<Modal.Title className="text-center mx-auto">{getAllTextsOfSite('cardOneTitle')}
+											<Modal.Title className="text-center mx-auto">
+												{getAllTextsOfSite('cardOneTitle')}
 											</Modal.Title>
 										</Modal.Header>
 										<Modal.Body>
-											<Row className='cards__row'>
-												<Col><Card.Img variant="top" src={Salary} /></Col>
+											<Row className='cards-row'>
+												<Col>
+													<Card.Img variant="top"
+														src={Salary} /></Col>
 												<Col >
-													<div className="mdl-text">{getAllTextsOfSite('cardOneModalText')}
+													<div className="mdl-text">
+														{getAllTextsOfSite('cardOneModalText')}
 													</div>
 												</Col>
 											</Row>
@@ -154,10 +161,12 @@ const Cards: React.FunctionComponent<{
 							<Card style={{ width: '18rem' }} >
 								<Card.Img variant="top" src={Medicine} />
 								<Card.Body>
-									<div className="cards-title__box">
+									<div className="cards-title-box">
 										<Card.Title>{getAllTextsOfSite('cardTwoTitle')}</Card.Title>
 									</div>
-									<Button onClick={() => handleShow(1)} className='cards__btn'>
+									<Button
+										onClick={() => handleShow(1)}
+										className='cards-btn'>
 										{getAllTextsOfSite('cardsBtn')}
 									</Button>
 									<Modal
@@ -167,14 +176,20 @@ const Cards: React.FunctionComponent<{
 										aria-labelledby="contained-modal-title-vcenter"
 										centered>
 										<Modal.Header closeButton>
-											<Modal.Title className="text-center mx-auto">{getAllTextsOfSite('cardTwoTitle')}</Modal.Title>
+											<Modal.Title className="text-center mx-auto">
+												{getAllTextsOfSite('cardTwoTitle')}
+											</Modal.Title>
 										</Modal.Header>
 										<Modal.Body>
 											<Row className='cards__row'>
-												<Col><Card.Img variant="top" src={Medicine} /></Col>
+												<Col>
+													<Card.Img variant="top"
+														src={Medicine} />
+												</Col>
 												<Col >
-													<div className="mdl-text">{getAllTextsOfSite('cardTwoModalText')}
-												</div>
+													<div className="mdl-text">
+														{getAllTextsOfSite('cardTwoModalText')}
+													</div>
 												</Col>
 											</Row>
 										</Modal.Body>
@@ -188,10 +203,14 @@ const Cards: React.FunctionComponent<{
 							<Card style={{ width: '18rem' }} >
 								<Card.Img variant="top" src={Education} />
 								<Card.Body>
-									<div className="cards-title__box">
-										<Card.Title>{getAllTextsOfSite('cardThreeTitle')}</Card.Title>
+									<div className="cards-title-box">
+										<Card.Title>
+											{getAllTextsOfSite('cardThreeTitle')}
+										</Card.Title>
 									</div>
-									<Button onClick={() => handleShow(2)} className='cards__btn'>
+									<Button
+										onClick={() => handleShow(2)}
+										className='cards-btn'>
 										{getAllTextsOfSite('cardsBtn')}
 									</Button>
 									<Modal
@@ -201,13 +220,16 @@ const Cards: React.FunctionComponent<{
 										aria-labelledby="contained-modal-title-vcenter"
 										centered>
 										<Modal.Header closeButton>
-											<Modal.Title className="text-center mx-auto">{getAllTextsOfSite('cardThreeTitle')}</Modal.Title>
+											<Modal.Title className="text-center mx-auto">
+												{getAllTextsOfSite('cardThreeTitle')}
+											</Modal.Title>
 										</Modal.Header>
 										<Modal.Body>
-											<Row className='cards__row'>
+											<Row className='cards-row'>
 												<Col><Card.Img variant="top" src={Education} /></Col>
 												<Col >
-													<div className="mdl-text">{getAllTextsOfSite('cardThreeModalText')}
+													<div className="mdl-text">
+														{getAllTextsOfSite('cardThreeModalText')}
 													</div>
 												</Col>
 											</Row>
@@ -222,10 +244,14 @@ const Cards: React.FunctionComponent<{
 							<Card style={{ width: '18rem' }} >
 								<Card.Img variant="top" src={Work} />
 								<Card.Body>
-									<div className="cards-title__box">
-										<Card.Title>{getAllTextsOfSite('cardFourTitle')}</Card.Title>
+									<div className="cards-title-box">
+										<Card.Title>
+											{getAllTextsOfSite('cardFourTitle')}
+										</Card.Title>
 									</div>
-									<Button onClick={() => handleShow(3)} className='cards__btn'>
+									<Button
+										onClick={() => handleShow(3)}
+										className='cards-btn'>
 										{getAllTextsOfSite('cardsBtn')}
 									</Button>
 									<Modal
@@ -235,13 +261,15 @@ const Cards: React.FunctionComponent<{
 										aria-labelledby="contained-modal-title-vcenter"
 										centered>
 										<Modal.Header closeButton>
-											<Modal.Title className="text-center mx-auto">{getAllTextsOfSite('cardFourTitle')}</Modal.Title>
+											<Modal.Title className="text-center mx-auto">
+												{getAllTextsOfSite('cardFourTitle')}</Modal.Title>
 										</Modal.Header>
 										<Modal.Body>
-											<Row className='cards__row'>
+											<Row className='cards-row'>
 												<Col><Card.Img variant="top" src={Work} /></Col>
 												<Col >
-													<div className="mdl-text">{getAllTextsOfSite('cardFourModalText')}
+													<div className="mdl-text">
+														{getAllTextsOfSite('cardFourModalText')}
 													</div>
 												</Col>
 											</Row>
@@ -256,10 +284,12 @@ const Cards: React.FunctionComponent<{
 							<Card style={{ width: '18rem' }} >
 								<Card.Img variant="top" src={Retired} />
 								<Card.Body>
-									<div className="cards-title__box">
+									<div className="cards-title-box">
 										<Card.Title>{getAllTextsOfSite('cardFiveTitle')}</Card.Title>
 									</div>
-									<Button onClick={() => handleShow(4)} className='cards__btn'>
+									<Button
+										onClick={() => handleShow(4)}
+										className='cards-btn'>
 										{getAllTextsOfSite('cardsBtn')}
 									</Button>
 									<Modal
@@ -269,14 +299,17 @@ const Cards: React.FunctionComponent<{
 										aria-labelledby="contained-modal-title-vcenter"
 										centered>
 										<Modal.Header closeButton>
-											<Modal.Title className="text-center mx-auto">{getAllTextsOfSite('cardFiveTitle')}</Modal.Title>
+											<Modal.Title className="text-center mx-auto">
+												{getAllTextsOfSite('cardFiveTitle')}
+											</Modal.Title>
 										</Modal.Header>
 										<Modal.Body>
-											<Row className='cards__row'>
+											<Row className='cards-row'>
 												<Col>
 													<Card.Img variant="top" src={Retired} /></Col>
 												<Col >
-													<div className="mdl-text">{getAllTextsOfSite('cardFiveModalText')}
+													<div className="mdl-text">
+														{getAllTextsOfSite('cardFiveModalText')}
 													</div>
 												</Col>
 											</Row>
@@ -291,10 +324,12 @@ const Cards: React.FunctionComponent<{
 							<Card style={{ width: '18rem' }} >
 								<Card.Img variant="top" src={Lorn} />
 								<Card.Body>
-									<div className="cards-title__box">
+									<div className="cards-title-box">
 										<Card.Title>{getAllTextsOfSite('cardSixTitle')}</Card.Title>
 									</div>
-									<Button onClick={() => handleShow(5)} className='cards__btn'>
+									<Button
+										onClick={() => handleShow(5)}
+										className='cards-btn'>
 										{getAllTextsOfSite('cardsBtn')}
 									</Button>
 									<Modal
@@ -304,13 +339,16 @@ const Cards: React.FunctionComponent<{
 										aria-labelledby="contained-modal-title-vcenter"
 										centered>
 										<Modal.Header closeButton>
-											<Modal.Title className="text-center mx-auto">{getAllTextsOfSite('cardSixTitle')}</Modal.Title>
+											<Modal.Title className="text-center mx-auto">
+												{getAllTextsOfSite('cardSixTitle')}
+											</Modal.Title>
 										</Modal.Header>
 										<Modal.Body>
-											<Row className='cards__row'>
+											<Row className='cards-row'>
 												<Col><Card.Img variant="top" src={Lorn} /></Col>
 												<Col >
-													<div className="mdl-text">{getAllTextsOfSite('cardSixModalText')}
+													<div className="mdl-text">
+														{getAllTextsOfSite('cardSixModalText')}
 													</div>
 												</Col>
 											</Row>

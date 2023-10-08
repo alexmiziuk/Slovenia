@@ -7,7 +7,6 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import styled from 'styled-components';
 
-
 import BledLake from '../Source/CarouselImg/Bled-lake.jpg';
 import Ljublana from '../Source/CarouselImg/Ljublana.png';
 import Mountins from '../Source/CarouselImg/Mountins.jpg';
@@ -62,8 +61,7 @@ const CarouselStyles = styled.div`
 .carousel {
 	padding: 70px 0;
    background-color: white;
-	
-	&__item {
+	&-title {
 		font-size: 42px;
 		font-weight: 600;
 		line-height: 54px;
@@ -71,28 +69,37 @@ const CarouselStyles = styled.div`
 		padding-bottom: 40px;
 		color: #786f6f;
 	}
-	&__btn {
+	&-slide {
 		position: relative;
-		border: none;
+		outline: none;
 	}
-	&__img {
-		width: 100%;
+	&-img {
+		width: 98%;
 		height: 600px;
 		object-fit: cover;
 		margin: 0 auto;
-		&-name {
-			position: absolute;
-			
-			font-weight: 400;
-			font-size: 14px;
-			bottom: 1px;
-  			left: 80%;
-  		   color: white;
-			}
 		}
-   .slick-next {
-			right: 15px;
+	&-btn {
+		position: absolute;
+		padding: 5px 0px;
+		font-weight: 400;
+		font-size: 16px;
+		bottom: 20px;
+  		left: 50%;
+		transform: translate(-50%);
+		background-color: orange;
+		border: none;
+		border-radius: 5px;
+  		color: white;
+		width: 180px;
+		transition: background-color 0.3s ease;
+		&:hover {
+			background-color: #c48106;
+		  }
 		}
+.slick-next {
+	right: 15px;
+	}
 		.slick-next:before {
 			position: absolute;
 			top: 50%;
@@ -112,7 +119,6 @@ const CarouselStyles = styled.div`
 			}
 		
 }
-
 
 `;
 interface CarouselsProps {
@@ -151,9 +157,9 @@ class Carousels extends Component<CarouselsProps>{
 		};
 	}
 
-	redirectToAnotherComponent = () => {
+	redirectToAnotherComponent = (link: string) => {
 		// относительный путь к компоненту
-		window.location.href = '../users';
+		window.location.href = link;
 	};
 	render() {
 		const { getAllTextsOfSite } = this.props; // Получаем getAllTextsOfSite из пропсов
@@ -164,44 +170,105 @@ class Carousels extends Component<CarouselsProps>{
 					<Container >
 						<Row>
 							<Col>
-								<h2 className='carousel__item' id='tour'> {getAllTextsOfSite('carouselTitle')} </h2>
+								<h2
+									className='carousel-title'
+									id='tour'>
+									{getAllTextsOfSite('carouselTitle')}
+								</h2>
 								<Slider {...this.settings} >
-									<button onClick={this.redirectToAnotherComponent} className='carousel__btn'>
-										<img src={BledLake} alt="" className="carousel__img" />
-										<p className="carousel__img-name">Блед</p>
-									</button>
-									<button className='carousel__btn'>
-										<img src={Ljublana} alt="" className="carousel__img" />
-										<p className="carousel__img-name">Любляна</p>
-									</button>
-									<button className='carousel__btn'>
-										<img src={Mountins} alt="" className="carousel__img" />
-										<p className="carousel__img-name">Debela peč</p>
-									</button>
-									<button className='carousel__btn'>
-										<img src={KochevjeChurch} alt="" className="carousel__img" />
-										<p className="carousel__img-name">Кочев&apos;є</p>
-									</button>
-									<button className='carousel__btn'>
-										<img src={LakeNearItaly} alt="" className="carousel__img" />
-										<p className="carousel__img-name">Rabeljsko Jezero</p>
-									</button>
-									<button className='carousel__btn'>
-										<img src={Maribor} alt="" className="carousel__img" />
-										<p className="carousel__img-name">Марибор</p>
-									</button>
-									<button className='carousel__btn'>
-										<img src={Ptuj} alt="" className="carousel__img" />
-										<p className="carousel__img-name">Птуй</p>
-									</button>
-									<button className='carousel__btn'>
-										<img src={Bridge} alt="" className="carousel__img" />
-										<p className="carousel__img-name">Міст <br></br>Солкан</p>
-									</button>
-									<button className='carousel__btn'>
-										<img src={Piran} alt="" className="carousel__img" />
-										<p className="carousel__img-name">Піран</p>
-									</button>
+									<div className='carousel-slide'>
+										<img src={BledLake}
+											alt=""
+											className="carousel-img" />
+										<button
+											onClick={() => this.redirectToAnotherComponent('#')}
+											className="carousel-btn">
+											{getAllTextsOfSite('carouselOneBtn')}
+										</button>
+									</div>
+									<div className='carousel-slide'>
+										<img src={Ljublana} alt=""
+											className="carousel-img" />
+										<button
+											onClick={() => this.redirectToAnotherComponent('ljubljana')}
+											className="carousel-btn">
+											{getAllTextsOfSite('carouselTwoBtn')}
+										</button>
+									</div>
+									<div className='carousel-slide'>
+										<img
+											src={Mountins}
+											alt=""
+											className="carousel-img" />
+										<button
+											onClick={() => this.redirectToAnotherComponent('#')}
+											className="carousel-btn">
+											{getAllTextsOfSite('carouselThreeBtn')}
+										</button>
+									</div>
+									<div className='carousel-slide'>
+										<img src={KochevjeChurch}
+											alt=""
+											className="carousel-img" />
+										<button
+											onClick={() => this.redirectToAnotherComponent('#')}
+											className="carousel-btn">
+											{getAllTextsOfSite('carouselFourBtn')}
+										</button>
+									</div>
+									<div className='carousel-slide'>
+										<img src={LakeNearItaly}
+											alt=""
+											className="carousel-img" />
+										<button
+											onClick={() => this.redirectToAnotherComponent('#')}
+											className="carousel-btn">
+											{getAllTextsOfSite('carouselFiveBtn')}
+										</button>
+									</div>
+									<div className='carousel-slide'>
+										<img
+											src={Maribor}
+											alt="" className="carousel-img" />
+										<button
+											onClick={() => this.redirectToAnotherComponent('#')}
+											className="carousel-btn">
+											{getAllTextsOfSite('carouselSixBtn')}
+										</button>
+									</div>
+									<div className='carousel-slide'>
+										<img
+											src={Ptuj}
+											alt=""
+											className="carousel-img" />
+										<button
+											onClick={() => this.redirectToAnotherComponent('#')}
+											className="carousel-btn">
+											{getAllTextsOfSite('carouselSevenBtn')}
+										</button>
+									</div>
+									<div className='carousel-slide'>
+										<img
+											src={Bridge}
+											alt=""
+											className="carousel-img" />
+										<button
+											onClick={() => this.redirectToAnotherComponent('#')}
+											className="carousel-btn">
+											{getAllTextsOfSite('carouselEightBtn')}
+										</button>
+									</div>
+									<div className='carousel-slide'>
+										<img
+											src={Piran}
+											alt=""
+											className="carousel-img" />
+										<button
+											onClick={() => this.redirectToAnotherComponent('piran')}
+											className="carousel-btn">
+											{getAllTextsOfSite('carouselNineBtn')}
+										</button>
+									</div>
 								</Slider>
 							</Col>
 						</Row>

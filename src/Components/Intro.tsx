@@ -16,20 +16,23 @@ const IntroStyles = styled.div`
    background-position: 50%;
    background-size: cover;
 	&-title {
-		color: white;
-		font-size: 42px;
-		font-weight: 600;
-		line-height: 54px;
+		&-text {
+			color: white;
+			font-weight: 600;
+			line-height: 54px;
+			font-size: 42px;
+		}
 	}
-	&-subitem {
+	&-subtitle {
 		margin-top: 20px;
+		&-text {
+			color: white;
+			font-size: 18px;
+			font-weight: 400;
+			line-height: 24px;
+		}
 	}
-	&-text {
-		color: white;
-		font-size: 18px;
-		font-weight: 400;
-		line-height: 24px;
-	}
+	
 	&-btn {
 		display: inline-block;
 		margin-top: 38px;
@@ -40,102 +43,130 @@ const IntroStyles = styled.div`
 		border-radius: 6px;
 		padding: 10px 20px;
 		border: none;
+		transition: background-color 0.3s ease;
 		&:hover {
 			background-color: #c48106;
-		  }
+		}
 	}
-	
 }
 
+@media (max-width: 926px) and (max-height: 428px) {
+	.intro {
+		padding-top: 92px;
+	}
+}
+
+
+@media (max-width: 897px) and (max-height: 415px) {
+	.intro {
+		padding-top: 133px;
+	}
+}
+@media (max-width: 880px) and (max-height: 391px) {
+	.intro {
+		padding-top: 65px;
+	}
+ }
+
+
+ 
 @media (max-width: 769px) {
 	.intro {
 		&-block {
 			padding-left: 20px;
 		}
-		&-item {
-			width: 445px;
-		}
 		&-title {
-			line-height: 53px;
+			width: 445px;
+			&-text {
+				line-height: 53px;
+			}
 		}
-		&-subitem {
+		
+		&-subtitle {
 			width: 394px;
-		}
-		&-text {
-			line-height: 29px;
+			&-text {
+				line-height: 29px;
+			}
 		}
 	}
  }
-
- @media (max-width: 469px) {
+ @media (max-width: 568px) and (max-height: 321px) {
 	.intro {
+		padding-top: 16px;
+	}
+ }
+@media (max-width: 469px) {
+	.intro {
+		padding-top: 160px;
 		&-block {
 			padding-left: 10px;
 		}
-		&-item {
-			width: 300px;
-		}
 		&-title {
-			font-size: 35px;
+			width: 300px;
+			
 		}
-	
-		&-subitem {
+		&-subtitle {
 			width: 280px;
 		}
 	}
 
-	@media (max-width: 385px) {
-		 .intro {
-			&-item {
-				width: 275px;
+@media (max-width: 385px) {
+		.intro {
+		&-title {
+			width: 275px;
+			&-text {
+				font-size: 42px;
 			}
-			&-title {
-				font-size: 32px;
-				line-height: 48px;
-			}
-			
 		}
+	}
+}
+@media (max-width: 321px) and (max-height: 568px) {
+	.intro {
+		padding-top: 55px;
+	}
  }
 `;
 
 const Intro: React.FunctionComponent<{
-	
+
 	getAllTextsOfSite: (key: string) => string;
-	
-	
-}> = ({getAllTextsOfSite}) => {
+
+
+}> = ({ getAllTextsOfSite }) => {
 	const handleScrollToTour = () => {
 		const element = document.getElementById('tour');
 		if (element) {
-			 element.scrollIntoView({ behavior: 'smooth' });
+			element.scrollIntoView({ behavior: 'smooth' });
 		}
-  };
+	};
 	return (
-			<IntroStyles>
-				<section className='intro'>
-					<Container fluid="md">
-						<Row>
-							<Col>
-								<div className="intro-block">
-									<div className="intro-item">
-										<h1 className="intro-title">
+		<IntroStyles>
+			<section className='intro'>
+				<Container fluid="md">
+					<Row>
+						<Col>
+							<div className="intro-block">
+								<div className="intro-title">
+									<h1 className="intro-title-text">
 										{getAllTextsOfSite('introTitle')}
-										</h1>
-									</div>
-									<div className="intro-subitem">
-										<p className="intro-text">
-										{getAllTextsOfSite('introSubTitle')}
-										</p>
-									</div>
-									<button onClick={handleScrollToTour} className="intro-btn">
-									{getAllTextsOfSite('introButton')}
-									</button>
+									</h1>
 								</div>
-							</Col>
-						</Row>
-					</Container>
-				</section>
-			</IntroStyles>
+								<div className="intro-subtitle">
+									<p className="intro-subtitle-text">
+										{getAllTextsOfSite('introSubTitle')}
+									</p>
+								</div>
+								<button
+									onClick={handleScrollToTour}
+									className="intro-btn">
+									{getAllTextsOfSite('introButton')}
+								</button>
+							</div>
+						</Col>
+					</Row>
+				</Container>
+			</section>
+		</IntroStyles>
 	);
 };
 

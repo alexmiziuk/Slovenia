@@ -49,6 +49,7 @@ const BayanStyles = styled.div`
 		font-weight: 400!important;
 		font-size: 18px!important;
 		line-height: 30px!important;
+		transition: background-color 0.3s ease-in-out;
 		&:hover {
 			background-color: #324b87;
 		}

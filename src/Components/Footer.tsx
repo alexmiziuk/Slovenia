@@ -139,7 +139,10 @@ const Footer: React.FunctionComponent<FooterProps> = ({ getAllTextsOfSite }) => 
 					<Row>
 						<Col>
 							<a href="#">
-								<img src={sloveniaLogoBlack} alt="WebDev Blog Logo" width="200" height="60" className='footer-logo'/>
+								<img src={sloveniaLogoBlack}
+									alt="WebDev Blog Logo"
+									width="200" height="60"
+									className='footer-logo' />
 							</a>
 							<p className="footer-text">
 							{getAllTextsOfSite('footerText')}
@@ -151,7 +154,8 @@ const Footer: React.FunctionComponent<FooterProps> = ({ getAllTextsOfSite }) => 
 							</h2>
 							<ul className='footer-list'>
 								<li className='footer-item'>
-									<a href="https://slovenia.mfa.gov.ua/" className="footer-link">
+									<a href="https://slovenia.mfa.gov.ua/"
+										className="footer-link">
 									{getAllTextsOfSite('footerLinkOne')}
 									</a>
 								</li>
@@ -161,17 +165,20 @@ const Footer: React.FunctionComponent<FooterProps> = ({ getAllTextsOfSite }) => 
 									</a>
 								</li>
 								<li className='footer-item'>
-									<a href="https://www.bolha.com/oddaja-stanovanja" className="footer-link">
+									<a href="https://www.bolha.com/oddaja-stanovanja"
+										className="footer-link">
 									{getAllTextsOfSite('footerLinkThree')}
 									</a>
 								</li>
 								<li className='footer-item'>
-									<a href="https://www.nomago.si/avtobusne-vozovnice/vozni-red" className="footer-link">
+									<a href="https://www.nomago.si/avtobusne-vozovnice/vozni-red"
+										className="footer-link">
 									{getAllTextsOfSite('footerLinkFour')}
 									</a>
 								</li>
 								<li className='footer-item'>
-									<a href="https://potniski.sz.si/en/" className="footer-link">
+									<a href="https://potniski.sz.si/en/"
+										className="footer-link">
 									{getAllTextsOfSite('footerLinkFive')}
 									</a>
 								</li>
@@ -184,37 +191,43 @@ const Footer: React.FunctionComponent<FooterProps> = ({ getAllTextsOfSite }) => 
 							<ul className='footer-list'>
 								<li className='footer-contact'>
 								{getAllTextsOfSite('footerContactOne')}&nbsp;
-									<a href="tel:113" className="footer-link footer-link-telephone">
+									<a href="tel:113"
+										className="footer-link footer-link-telephone">
 										113
 									</a>
 								</li>
 								<li className='footer-contact'>
 								{getAllTextsOfSite('footerContactTwo')}&nbsp;
-									<a href="tel:+386 080 12 00" className="footer-link footer-link-telephone">
+									<a href="tel:+386 080 12 00"
+										className="footer-link footer-link-telephone">
 										+386 080 12 00
 									</a>
 								</li>
 								<li className='footer-contact'>
 								{getAllTextsOfSite('footerContactThree')}&nbsp;
-									<a href="tel:112" className="footer-link footer-link-telephone">
+									<a href="tel:112"
+										className="footer-link footer-link-telephone">
 										112
 									</a>
 								</li>
 								<li className='footer-contact'>
 								{getAllTextsOfSite('footerContactFour')}&nbsp;
-									<a href="tel:+3860801900" className="footer-link footer-link-telephone">
+									<a href="tel:+3860801900"
+										className="footer-link footer-link-telephone">
 										+386 080 1900
 									</a>
 								</li>
 								<li className='footer-contact'>
 								{getAllTextsOfSite('footerContactFive')}&nbsp;
-									<a href="tel:+386(1)4210604" className="footer-link footer-link-telephone">
+									<a href="tel:+386(1)4210604"
+										className="footer-link footer-link-telephone">
 										+386 (1) 421 06 04
 									</a>
 								</li>
 								<li className='footer-contact'>
 								{getAllTextsOfSite('footerContactSix')}&nbsp;
-									<a href="tel:+38631702765" className="footer-link footer-link-telephone">
+									<a href="tel:+38631702765"
+										className="footer-link footer-link-telephone">
 										+386 31 702 765
 									</a>
 								</li>
@@ -225,15 +238,22 @@ const Footer: React.FunctionComponent<FooterProps> = ({ getAllTextsOfSite }) => 
 							{getAllTextsOfSite('footerTitleCommunity')}
 							</h2>
 							<Row style={{ margin: '23px -12px 7px ' }}>
-								<a href="https://www.facebook.com/groups/ukrainiansinslovenia/?locale=uk_UA" className="intro__btn">
+								<a href="https://www.facebook.com/groups/ukrainiansinslovenia/?locale=uk_UA"
+									className="intro__btn">
 									<div className="footer-social footer-social-facebook">
 										<div className="footer-window">
 											<div className="footer-container">
-												<div className='footer-background-icons-up footer-background-color-icons-facebook'>
-													<img src={iconFacebook} alt="icon-facebook" className="footer-icons" />
+												<div className='footer-background-icons-up 
+												footer-background-color-icons-facebook'>
+													<img src={iconFacebook}
+														alt="icon-facebook"
+														className="footer-icons" />
 												</div>
-												<div className='footer-background-icons-down footer-background-color-icons-facebook'>
-													<img src={iconFacebook} alt="icon-facebook" className="footer-icons" />
+												<div className='footer-background-icons-down 
+												footer-background-color-icons-facebook'>
+													<img src={iconFacebook}
+														alt="icon-facebook"
+														className="footer-icons" />
 												</div>
 											</div>
 										</div>
@@ -241,15 +261,22 @@ const Footer: React.FunctionComponent<FooterProps> = ({ getAllTextsOfSite }) => 
 								</a>
 							</Row>
 							<Row>
-								<a href="https://t.me/ukrainiansinslo" className="intro__btn">
+								<a href="https://t.me/ukrainiansinslo"
+									className="intro__btn">
 									<div className="footer-social footer-social-telegram">
 										<div className="footer-window">
 											<div className="footer-container">
-												<div className='footer-background-icons-up background-telegram footer-background-color-icons-telegram'>
-													<img src={iconTelegram} alt="icon-telegram" className="footer-icons" />
+												<div className='footer-background-icons-up background-telegram
+												 footer-background-color-icons-telegram'>
+													<img src={iconTelegram}
+														alt="icon-telegram"
+														className="footer-icons" />
 												</div>
-												<div className='footer-background-icons-down background-telegram footer-background-color-icons-telegram'>
-													<img src={iconTelegram} alt="icon-telegram" className="footer-icons" />
+												<div className='footer-background-icons-down 
+												background-telegram footer-background-color-icons-telegram'>
+													<img src={iconTelegram}
+														alt="icon-telegram"
+														className="footer-icons" />
 												</div>
 											</div>
 										</div>

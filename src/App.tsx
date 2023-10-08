@@ -2,14 +2,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import NaviBar from './Components/NaviBar';
-import Home from './Home';
-import Users from './Users';
-import About from './Abouts'; // Correct the import to 'About'
+import Main from './Pages/Main';
+import Ljubljana from './Pages/Ljubijana';
+import Piran from './Pages/Piran';
 import Footer from './Components/Footer';
 
 import './App.css';
 
 import React, { useState } from 'react';
+
+
 
 const App: React.FC = () => {
 
@@ -41,6 +43,15 @@ const App: React.FC = () => {
 				aboutParagraphThree: 'Словенія має приблизно 2,1 мільйона жителів. Важливими містами, крім Любляни, є Марібор, Целе, Копер, Крань і Ново Место. Кожне з цих міст має свою унікальну історію та культурну спадщину, приваблюючи туристів з різних куточків світу.',
 				aboutParagraphFour: 'Словенія, зі своєю невеликою площею, вражає своєю природною красою, панорамними горами, мальовничими озерами і чарівними селами. Багата культурна спадщина та дружність місцевого населення роблять Словенію привабливим місцем для відвідування та дослідження.',
 				carouselTitle: 'Словенія: Віртуальний тур',
+				carouselOneBtn: 'Блед',
+				carouselTwoBtn: 'Любляна',
+				carouselThreeBtn: 'Дебела печ',
+				carouselFourBtn: 'Кочев`є',
+				carouselFiveBtn: 'Рабел`йско озеро',
+				carouselSixBtn: 'Марибор',
+				carouselSevenBtn: 'Птуй',
+				carouselEightBtn: 'Міст Солкан',
+				carouselNineBtn: 'Піран',
 				cardsTitle: 'Життя в Словенії',
 				cardsBtn: 'ДІЗНАТИСЯ.....',
 				cardOneTitle: 'Середня зарплата',
@@ -77,6 +88,9 @@ const App: React.FC = () => {
 				footerContactFive: 'Посольство України у Словенії:',
 				footerContactSix: 'Гаряча лінія Посольства:',
 				footerTitleCommunity: 'Спільноти українців',
+				ljubljanaIntroTitle: 'Любляна',
+				ljubljanaIntroTextOne: 'Відкрийте для себе це унікальне місто, що розташоване на берегах річки Люблянки, і насолоджуйтеся його архітектурною красою, величезними парками і садами, культурними подіями та смачною місцевою кухнею.',
+				ljubljanaIntroTextTwo: 'Відвідайте Люблянський замок, прогуляйтесь вулицями Старого Міста і відчуйте неймовірну атмосферу. Чарівна Любляна, столиця прекрасної Словенії, чекає на вас!',
 			},
 
 			english: {
@@ -94,6 +108,15 @@ const App: React.FC = () => {
 				aboutParagraphThree: 'Slovenia has approximately 2.1 million inhabitants. Other important cities besides Ljubljana are Maribor, Celje, Koper, Kranj and Novo Mesto. Each of these cities has its own unique history and cultural heritage, attracting tourists from all over the world.',
 				aboutParagraphFour: 'Slovenia, with its small size, impresses with its natural beauty, panoramic mountains, picturesque lakes and charming villages. The rich cultural heritage and friendliness of the local population make Slovenia an attractive place to visit and explore.',
 				carouselTitle: 'Slovenia: A virtual tour',
+				carouselOneBtn: 'Bled',
+				carouselTwoBtn: 'Ljubljana',
+				carouselThreeBtn: 'Debela peč',
+				carouselFourBtn: 'Kočevje',
+				carouselFiveBtn: 'Rabeljsko jezero',
+				carouselSixBtn: 'Maribor',
+				carouselSevenBtn: 'Ptuj',
+				carouselEightBtn: 'Solkan Bridge',
+				carouselNineBtn: 'Piran',
 				cardsTitle: 'Life in Slovenia',
 				cardsBtn: 'LEARN MORE...',
 				cardOneTitle: 'Average salary',
@@ -130,6 +153,9 @@ const App: React.FC = () => {
 				footerContactFive: 'Embassy of Ukraine in Slovenia:',
 				footerContactSix: 'The Embassy`s hotline:',
 				footerTitleCommunity: 'Communities of Ukrainians',
+				ljubljanaIntroTitle: 'Ljubljana',
+				ljubljanaIntroTextOne: 'Discover this unique city located on the banks of the Ljubljana River and enjoy its architectural beauty, vast parks and gardens, cultural events and delicious local cuisine.',
+				ljubljanaIntroTextTwo: 'Visit the Ljubljana Castle, stroll the streets of the Old Town and feel the incredible atmosphere. Charming Ljubljana, the capital of beautiful Slovenia, is waiting for you!',
 			},
 		};
 
@@ -143,14 +169,20 @@ const App: React.FC = () => {
 	return (
 		<>
 			<Router>
-				<NaviBar getAllTextsOfSite={getAllTextsOfSite}
+				<NaviBar 
+					getAllTextsOfSite={getAllTextsOfSite}
 					toggleLanguage={toggleLanguage}
 					handleNavLinkClick={handleNavLinkClick}
-					navLink={navLink} language={language} />
+					navLink={navLink}
+					language={language}
+					 />
 				<Routes>
-					<Route path="/" element={<Home getAllTextsOfSite={getAllTextsOfSite} />} />
-					<Route path="/users" element={<Users />} />
-					<Route path="/about" element={<About />} /> {/* Use 'About' component here */}
+					<Route path="/"
+						element={<Main getAllTextsOfSite={getAllTextsOfSite} />} />
+					<Route path="/ljubljana"
+						element={<Ljubljana getAllTextsOfSite={getAllTextsOfSite}/>} />
+					<Route path="/piran"
+						element={<Piran />} /> {/* Use 'About' component here */}
 				</Routes>
 			</Router>
 			<Footer getAllTextsOfSite={getAllTextsOfSite} />
