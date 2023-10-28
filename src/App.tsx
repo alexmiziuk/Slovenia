@@ -11,8 +11,6 @@ import './App.css';
 
 import React, { useState } from 'react';
 
-
-
 const App: React.FC = () => {
 
 	const [language, setLanguage] = useState('ukrainian');
@@ -91,6 +89,19 @@ const App: React.FC = () => {
 				ljubljanaIntroTitle: 'Любляна',
 				ljubljanaIntroTextOne: 'Відкрийте для себе це унікальне місто, що розташоване на берегах річки Люблянки, і насолоджуйтеся його архітектурною красою, величезними парками і садами, культурними подіями та смачною місцевою кухнею.',
 				ljubljanaIntroTextTwo: 'Відвідайте Люблянський замок, прогуляйтесь вулицями Старого Міста і відчуйте неймовірну атмосферу. Чарівна Любляна, столиця прекрасної Словенії, чекає на вас!',
+				ljubljanaCastleTitle: 'Люблянський Замок',
+				ljubljanaCastleTextOne: 'Любляна, столиця Словенії, багата на історичну спадщину, яка простежується в кожній вулиці та куточку міста. Однією з найбільш вражаючих історичних пам`яток є Люблянський замок. Цей величний замок, розташований на пагорбі, пропонує неймовірні краєвиди на місто та річку Любляницю. Середньовічна архітектура замку і його вежі приковують увагу і переносить відвідувачів у минуле.',
+				ljubljanaCastleTextTwo: 'На території Люблянського замку також розташовано кілька захопливих музеїв, що занурюють відвідувачів в історію та культуру Словенії. Вони сповнені колекцій артефактів і експонатів, пов`язаних з історією замку і його околиць. Тут ви можете дізнатися більше про середньовічних лицарів, архітектурні особливості замку і навіть про легенди, пов`язані з цим місцем.',
+				LjubljanicaTitle: 'Річка Любляниця',
+				ljubljanicaTextOneFirst: 'Любляниця - річка, що протікає через столицю Словенії, Любляну. Вона є однією з головних визначних пам`яток міста і відіграє важливу роль у його житті.',
+				ljubljanicaTextOneSecond: 'Річка бере початок у горах Юлійських Альп і впадає в Саву в районі Подграда. Довжина Любляниці становить лише 41 кілометр, але вона є важливою транспортною артерією міста. Нею курсують прогулянкові кораблики, а також водні таксі. Вона є найкоротшою річкою в Європі, яка належить до судноплавних.',
+				ljubljanicaTextTwoFirst: 'Любляниця - це також популярне місце для відпочинку та прогулянок. Уздовж річки розташовані численні парки, сквери та набережні. Тут можна помилуватися мальовничими краєвидами міста, посидіти на березі та відпочити від метушні.',
+				ljubljanicaTextTwoSecond: 'На берегах Любляниці розташовані численні історичні будівлі, зокрема Люблянський замок, Міст Драконів і Потрійний міст. У 2014 році Любляницю було названо однією з найкрасивіших річок Європи за версією журналу National Geographic.',
+				oldCityTitleOne: 'Старовинний центр',
+				oldCityTitleTwo: 'Любляни',
+				oldCityTextOne: 'Старий центр Любляни - це чарівний куточок міста, який зберіг свою середньовічну атмосферу. Тут вузькі вулички, вимощені бруківкою, старовинні будівлі та затишні кафе.',
+				oldCityTextTwo: 'Прогулюючись старим містом, можна відчути себе в іншій епосі. Тут можна побачити середньовічні церкви та палаци, відвідати музеї та галереї, а також просто відпочити та насолодитися атмосферою. Старий центр Любляни - це must-see для всіх, хто відвідує місто. Це місце, яке залишить у вас незабутні враження.',
+
 			},
 
 			english: {
@@ -156,6 +167,18 @@ const App: React.FC = () => {
 				ljubljanaIntroTitle: 'Ljubljana',
 				ljubljanaIntroTextOne: 'Discover this unique city located on the banks of the Ljubljana River and enjoy its architectural beauty, vast parks and gardens, cultural events and delicious local cuisine.',
 				ljubljanaIntroTextTwo: 'Visit the Ljubljana Castle, stroll the streets of the Old Town and feel the incredible atmosphere. Charming Ljubljana, the capital of beautiful Slovenia, is waiting for you!',
+				ljubljanaCastleTitle: 'Ljubljana Castle',
+				ljubljanaCastleTextOne: 'Ljubljana, the capital of Slovenia, is rich in historical heritage, which can be seen in every street and corner of the city. One of the most impressive historical landmarks is the Ljubljana Castle. This majestic castle, located on a hill, offers incredible views of the city and the Ljubljanica River. The medieval architecture of the castle and its towers attract attention and transport visitors back in time.',
+				ljubljanaCastleTextTwo: 'There are also several fascinating museums on the territory of the Ljubljana Castle that immerse visitors in the history and culture of Slovenia. They are full of collections of artifacts and exhibits related to the history of the castle and its surroundings. Here you can learn more about the medieval knights, the architectural features of the castle and even the legends associated with this place.',
+				LjubljanicaTitle: 'The Ljubljanica River',
+				ljubljanicaTextOneFirst: 'The Ljubljanica is a river that flows through the capital of Slovenia, Ljubljana. It is one of the main attractions of the city and plays an important role in its life.',
+				ljubljanicaTextOneSecond: 'The river originates in the Julian Alps and flows into the Sava River in the Podgrad area. The length of Ljubljana is only 41 kilometers, but it is an important transportation artery for the city. It is used by pleasure boats and water taxis. It is the shortest river in Europe that is navigable.',
+				ljubljanicaTextTwoFirst: 'Ljubljana is also a popular place for recreation and walking. There are numerous parks, squares and embankments along the river. Here you can admire the picturesque views of the city, sit on the bank and take a break from the hustle and bustle.',
+				ljubljanicaTextTwoSecond: 'Numerous historical buildings are located on the banks of the Ljubljana River, including the Ljubljana Castle, the Bridge of Dragons and the Triple Bridge. In 2014, the Ljubljana River was named one of the most beautiful rivers in Europe by the National Geographic Magazine.',
+				oldCityTitleOne: 'Ancient center',
+				oldCityTitleTwo: ' Ljubljana',
+				oldCityTextOne: 'The old center of Ljubljana is a charming corner of the city that has retained its medieval atmosphere. It has narrow cobblestone streets, old buildings and cozy cafes.',
+				oldCityTextTwo: 'Walking around the old town, you can feel yourself in another era. Here you can see medieval churches and palaces, visit museums and galleries, and just relax and enjoy the atmosphere. The old center of Ljubljana is a must-see for anyone visiting the city. This is a place that will leave you with an unforgettable experience.',
 			},
 		};
 
@@ -169,18 +192,18 @@ const App: React.FC = () => {
 	return (
 		<>
 			<Router>
-				<NaviBar 
+				<NaviBar
 					getAllTextsOfSite={getAllTextsOfSite}
 					toggleLanguage={toggleLanguage}
 					handleNavLinkClick={handleNavLinkClick}
 					navLink={navLink}
 					language={language}
-					 />
+				/>
 				<Routes>
 					<Route path="/"
 						element={<Main getAllTextsOfSite={getAllTextsOfSite} />} />
 					<Route path="/ljubljana"
-						element={<Ljubljana getAllTextsOfSite={getAllTextsOfSite}/>} />
+						element={<Ljubljana getAllTextsOfSite={getAllTextsOfSite} />} />
 					<Route path="/piran"
 						element={<Piran />} /> {/* Use 'About' component here */}
 				</Routes>

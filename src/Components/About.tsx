@@ -20,7 +20,7 @@ const AboutStyles = styled.div`
 		color: #786f6f;
 	}
 	.row {
-	 padding-top: 30px
+	 padding-top: 30px;
 	}
 
 &-map-image {
