@@ -2,7 +2,12 @@ import Accordion from 'react-bootstrap/Accordion';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Image from 'react-bootstrap/Image';
 import styled from 'styled-components';
+import { titleMixin } from '../Mixins/titleMixin';
+import { textSize14Mixin } from '../Mixins/textSize14Mixin';
+import { buttonMixin } from '../Mixins/buttonMixin';
+
 
 import KranjskaKlobasa from '../Source/Accordion/Odprtakuhinja-kranjska.jpg';
 import KraškiPrsut from '../Source/Accordion/kraski-prsut.jpg';
@@ -29,11 +34,7 @@ const BayanStyles = styled.div`
 		width: 100%;
 		}
 	&-title {
-		font-weight: 600;
-		font-size: 42px;
-		text-align: center;
-		line-height: 54px;
-		color: #786f6f;
+		${titleMixin}
 		}
 	&-item {
 		display: flex !important;
@@ -89,8 +90,7 @@ const BayanStyles = styled.div`
 	&-contain {
 		display: inline-block;
 		margin-top: 20px;
-		font-weight: 400;
-		font-size: 14px;
+		${textSize14Mixin};
 	}
 	&-bold {
 		font-weight: 700 !important;
@@ -155,139 +155,57 @@ const BayanStyles = styled.div`
 `
 
 const Bayan: React.FunctionComponent<{
-	
 	getAllTextsOfSite: (key: string) => string;
-	
-	
-// eslint-disable-next-line react/prop-types
-}> = ({getAllTextsOfSite}) => {
-	
+	// eslint-disable-next-line react/prop-types
+}> = ({ getAllTextsOfSite }) => {
+
+	const accordionData = [
+		{ key: '0', title: 'Kranjska klobasa', textKey: 'bayanOne', image: KranjskaKlobasa },
+		{ key: '1', title: 'Kraški pršut', textKey: 'bayanTwo', image: KraškiPrsut },
+		{ key: '2', title: 'Čompe s skuto', textKey: 'bayanThree', image: CompesSkuto },
+		{ key: '3', title: 'Jota', textKey: 'bayanFour', image: Jota },
+		{ key: '4', title: 'Potica', textKey: 'bayanFive', image: Potica },
+		{ key: '5', title: 'Prekmurska gibanica', textKey: 'bayanSix', image: PrekmurskaGibanica },
+	];
+
 	return (
 		<BayanStyles>
-			<section className='accordion'>
+			<section className="accordion">
 				<Container>
-					<h2 className="accordion-title">
-					{getAllTextsOfSite('bayanTitle')}
-					</h2>
+					<h2 className="accordion-title">{getAllTextsOfSite('bayanTitle')}</h2>
 					<Row>
 						<Col>
-							<Accordion defaultActiveKey="0" className='accordion-wrapper'>
-								<Accordion.Item eventKey="0" >
-									<Accordion.Header ><div className='accordion-button-name'>Kranjska klobasa</div></Accordion.Header>
-									<Accordion.Body>
-										<Row>
-											<Col>
-												<img src={KranjskaKlobasa} alt="" className="accordion-img" />
-											</Col>
-										</Row>
-										<Row>
-											<Col>
-												<p className="accordion-contain">
-													<span className="accordion-bold">Kranjska klobasa</span>
-													{getAllTextsOfSite('bayanOne')}
-												</p>
-											</Col>
-										</Row>
-									</Accordion.Body>
-								</Accordion.Item>
-								<Accordion.Item eventKey="1">
-									<Accordion.Header><div className='accordion-button-name'>Kraški pršut</div></Accordion.Header>
-									<Accordion.Body>
-										<Row>
-											<Col>
-												<img src={KraškiPrsut} alt="" className="accordion-img" />
-											</Col>
-										</Row>
-										<Row>
-											<Col>
-												<p className="accordion-contain">
-													<span className="accordion-bold">Kraški pršut</span>
-													{getAllTextsOfSite('bayanTwo')}
-												</p>
-											</Col>
-										</Row>
-									</Accordion.Body>
-								</Accordion.Item>
-								<Accordion.Item eventKey="2">
-									<Accordion.Header><div className='accordion-button-name'>Čompe s skuto</div></Accordion.Header>
-									<Accordion.Body>
-										<Row>
-											<Col>
-												<img src={CompesSkuto} alt="" className="accordion-img" />
-											</Col>
-										</Row>
-										<Row>
-											<Col>
-												<p className="accordion-contain">
-													<span className="accordion-bold">Čompe s skuto</span>
-													{getAllTextsOfSite('bayanThree')}
-												</p>
-											</Col>
-										</Row>
-									</Accordion.Body>
-								</Accordion.Item>
-								<Accordion.Item eventKey="3">
-									<Accordion.Header><div className='accordion-button-name'>Jota</div></Accordion.Header>
-									<Accordion.Body>
-										<Row>
-											<Col>
-												<img src={Jota} alt="" className="accordion-img" />
-											</Col>
-										</Row>
-										<Row>
-											<Col>
-												<p className="accordion-contain">
-													<span className="accordion-bold">Jota</span>
-													{getAllTextsOfSite('bayanFour')}
-												</p>
-											</Col>
-										</Row>
-									</Accordion.Body>
-								</Accordion.Item>
-								<Accordion.Item eventKey="4">
-									<Accordion.Header><div className='accordion-button-name'>Potica</div></Accordion.Header>
-									<Accordion.Body>
-										<Row>
-											<Col>
-												<img src={Potica} alt="" className="accordion-img" />
-											</Col>
-										</Row>
-										<Row>
-											<Col>
-												<p className="accordion-contain">
-													<span className="accordion-bold">Potica</span>
-													{getAllTextsOfSite('bayanFive')}
-												</p>
-											</Col>
-										</Row>
-									</Accordion.Body>
-								</Accordion.Item>
-								<Accordion.Item eventKey="5">
-									<Accordion.Header><div className='accordion-button-name'>Prekmurska gibanica</div></Accordion.Header>
-									<Accordion.Body>
-										<Row>
-											<Col>
-												<img src={PrekmurskaGibanica} alt="" className="accordion-img" />
-											</Col>
-										</Row>
-										<Row>
-											<Col>
-												<p className="accordion-contain">
-													<span className="accordion-bold">Prekmurska gibanica</span>
-													{getAllTextsOfSite('bayanSix')}
-												</p>
-											</Col>
-										</Row>
-									</Accordion.Body>
-								</Accordion.Item>
+							<Accordion defaultActiveKey="0" className="accordion-wrapper">
+								{accordionData.map((item) => (
+									<Accordion.Item key={item.key} eventKey={item.key}>
+										<Accordion.Header>
+											<div className="accordion-button-name">{item.title}</div>
+										</Accordion.Header>
+										<Accordion.Body>
+											<Row>
+												<Col>
+													<Image src={item.image} alt="" className="accordion-img" />
+												</Col>
+											</Row>
+											<Row>
+												<Col>
+													<p className="accordion-contain">
+														<span className="accordion-bold">{item.title}</span>
+														{getAllTextsOfSite(item.textKey)}
+													</p>
+												</Col>
+											</Row>
+										</Accordion.Body>
+									</Accordion.Item>
+								))}
 							</Accordion>
 						</Col>
 					</Row>
 				</Container>
 			</section>
 		</BayanStyles>
-
 	);
 };
+
 
 export default Bayan;

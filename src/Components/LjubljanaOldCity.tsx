@@ -3,6 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
+import { titleMixin } from '../Mixins/titleMixin';
 
 import Fountain from '../Source/Ljubljana/Fontain-in-the-New-Marker-Square.jpg';
 import CentralMarketing from '../Source/Ljubljana/Central-Market.jpg';
@@ -10,8 +11,11 @@ import Castle from '../Source/Ljubljana/franciscans-hastl.jpg';
 import RibjaBridge from '../Source/Ljubljana/Ribja-brv.jpg';
 import TripleBridge from '../Source/Ljubljana/Triple-bridge.jpg';
 import CooperativBuisiness from '../Source/Ljubljana/The-cooperativ-buisiness-bank.jpg';
+import { textMixin } from '../Mixins/textMixin';
 
 import styled from 'styled-components';
+
+
 
 const Styles = styled.div`
 .old-city{
@@ -26,14 +30,11 @@ const Styles = styled.div`
 		top: 0px;
 	}
 	&-title {
-		font-weight: 600;
-		font-size: 42px;
-		line-height: 54px;
-		color: #786f6f;
+		${titleMixin}
+		text-align: left;
 	}
 	&-text {
-		font-weight: 400;
-		font-size: 16px;
+		${textMixin};
 		padding: 0 12px 0 12px;
 		padding-bottom: 40px;
 	}
@@ -44,14 +45,51 @@ const Styles = styled.div`
 		margin-bottom: 20px;
 	}
 }
+
+@media (max-width: 768px) {
+	.old-city{
+		&-line {
+			width: 309px;
+			left: 50%;
+			  transform: translateX(-50%);
+			}
+		&-title {
+			text-align: center;
+		}
+		&-text { 
+			margin-top: 40px;
+		}
+	}
+ }
+
+@media (max-width: 576px) {
+	.old-city{
+		&-line {
+			width: 65%;
+		}
+	}
+ }
 `
+
+const images = [
+	{ src: Fountain, alt: 'Fountain' },
+	{ src: CentralMarketing, alt: 'Central Marketing' },
+	{ src: Castle, alt: 'Castle' },
+	{ src: RibjaBridge, alt: 'Ribja Bridge' },
+	{ src: TripleBridge, alt: 'Triple Bridge' },
+	{ src: CooperativBuisiness, alt: 'Coperative Business' },
+];
+
 const LjubljanaOldCity: React.FC<{
 	getAllTextsOfSite: (key: string) => string;
-}> = ({ getAllTextsOfSite }) =>  {
+}> = ({ getAllTextsOfSite }) => {
 	return (
 		<Styles>
 			<section className='old-city'>
-			<Container fluid="md"><span className='old-city-line'></span></Container>
+				<Container fluid="md">
+					<span className='old-city-line'>
+					</span>
+				</Container>
 				<Container fluid="md">
 					<Row>
 						<Col md={6} lg={6} xl={5}>
@@ -65,31 +103,23 @@ const LjubljanaOldCity: React.FC<{
 							{getAllTextsOfSite('oldCityTextTwo')}
 						</Col>
 					</Row>
-					<Row>
-						<Col xs={12} sm={6} md={4} lg={4} xl={4}>
-							<Image className='old-city-img' src={Fountain} rounded />
-						</Col>
-						<Col xs={12} sm={6} md={4} lg={4} xl={4}>
-							<Image className='old-city-img' src={CentralMarketing} rounded />
-						</Col>
-						<Col xs={12} sm={6} md={4} lg={4} xl={4}>
-							<Image className='old-city-img' src={Castle} rounded />
-						</Col>
-						<Col xs={12} sm={6} md={4} lg={4} xl={4}>
-							<Image className='old-city-img' src={RibjaBridge} rounded />
-						</Col>
-						<Col xs={12} sm={6} md={4} lg={4} xl={4}>
-							<Image className='old-city-img' src={TripleBridge} rounded />
-						</Col>
-						<Col xs={12} sm={6} md={4} lg={4} xl={4}>
-							<Image className='old-city-img' src={CooperativBuisiness} rounded />
-						</Col>
-					</Row>
+					<OldCityImages/>
 				</Container>
 			</section>
 		</Styles>
-
 	);
-};
+	};
+
+	const OldCityImages = () => {
+		return (
+		  <Row>
+				{images.map((image, index) => (
+				  <Col key={index} xs={12} sm={6} md={4} lg={4} xl={4}>
+					 <Image className='old-city-img' src={image.src} alt={image.alt} rounded />
+				  </Col>
+				))}
+			</Row>
+		);
+	 };
 
 export default LjubljanaOldCity;

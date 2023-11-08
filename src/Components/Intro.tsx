@@ -1,8 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
+import { titleMixin } from '../Mixins/titleMixin';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
+import { buttonMixin } from '../Mixins/buttonMixin';
+
 import img from '../Source/img/main-background.jpg';
 
 
@@ -17,10 +20,10 @@ const IntroStyles = styled.div`
    background-size: cover;
 	&-title {
 		&-text {
+			${ titleMixin};
+			text-align: left;
 			color: white;
-			font-weight: 600;
-			line-height: 54px;
-			font-size: 42px;
+			
 		}
 	}
 	&-subtitle {
@@ -35,15 +38,9 @@ const IntroStyles = styled.div`
 	
 	&-btn {
 		display: inline-block;
+		${buttonMixin}
 		margin-top: 38px;
-		font-weight: 400;
-		font-size: 16px;
-		color: white;
-		background-color: orange;
-		border-radius: 6px;
 		padding: 10px 20px;
-		border: none;
-		transition: background-color 0.3s ease;
 		&:hover {
 			background-color: #c48106;
 		}

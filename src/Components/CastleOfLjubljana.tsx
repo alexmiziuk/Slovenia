@@ -4,6 +4,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 import styled from 'styled-components';
+import { titleMixin } from '../Mixins/titleMixin';
+import { textMixin } from '../Mixins/textMixin';
 
 
 import LjubljanskijGgradCopy from '../Source/Ljubljana/Ljubljanskij-grad-copy.jpg';
@@ -15,12 +17,8 @@ const CastleOfLjubljanaStyles = styled.div`
     padding: 70px 0;
     background-color: white;
 	&-title {
-      font-weight: 600;
-      font-size: 42px;
-      text-align: center;
-      line-height: 54px;
-      color: #786f6f;
-    }
+      ${titleMixin}
+   }
 	 
     &-row {
       margin-top: 40px;
@@ -37,9 +35,7 @@ const CastleOfLjubljanaStyles = styled.div`
     }
 
     &-text {
-      font-weight: 400;
-      font-size: 16px;
-
+      ${textMixin};
       &-one {
         padding-top: 72px;
         padding-bottom: 40px;

@@ -101,6 +101,20 @@ const App: React.FC = () => {
 				oldCityTitleTwo: 'Любляни',
 				oldCityTextOne: 'Старий центр Любляни - це чарівний куточок міста, який зберіг свою середньовічну атмосферу. Тут вузькі вулички, вимощені бруківкою, старовинні будівлі та затишні кафе.',
 				oldCityTextTwo: 'Прогулюючись старим містом, можна відчути себе в іншій епосі. Тут можна побачити середньовічні церкви та палаци, відвідати музеї та галереї, а також просто відпочити та насолодитися атмосферою. Старий центр Любляни - це must-see для всіх, хто відвідує місто. Це місце, яке залишить у вас незабутні враження.',
+				piranIntroTitle: 'Піран: перлина Адріатичного моря',
+				piranIntroTextOne: 'Піран - це невелике місто на південному заході Словенії, розташоване на узбережжі Адріатичного моря. Місто відоме своїми середньовічними вуличками, мальовничими набережжями та чудовими краєвидами на море.',
+				piranIntroTextTwo: 'Піран був заснований у 6 столітті до н.е. і був частиною Римської імперії, Венеціанської республіки та Австро-Угорської імперії. Сьогодні місто є популярним туристичним напрямком, відомим своїм історичним центром, який внесений до списку Всесвітньої спадщини ЮНЕСКО.',
+				embankmentTitle: 'Місто з чарівними набережними',
+				embankmentTextFirst: 'Набережна Пірана - це одна з найпопулярніших визначних пам`яток міста. Вона розташована на південному заході Словенії, на узбережжі Адріатичного моря. Набережна є улюбленим місцем для прогулянок, відпочинку та фотографування. Набережна Пірана налічує близько 1,5 км і складається з двох частин: Старої набережної і Нової набережної.',
+				embankmentTextSecond: ' - це історична частина набережної, яка була побудована в 15 столітті. Вона викладена кам`яними плитами і має аркаду, під якою розташовані магазини, кафе і ресторани.',
+				embankmentTextSecondBold: 'Стара набережна',
+				embankmentTextThird: ' - це сучасна частина набережної, яка була побудована в 20 столітті. Вона викладена бетоном і має променад, з якого відкривається чудовий вид на море.',
+				embankmentTextThirdBold: 'Нова набережна',
+				embankmentTextFourth: 'Набережна Пірана є популярним місцем для прогулянок, відпочинку та фотографування. Тут можна прогулятися по Старій набережній, насолодитися видом на море з Нового променаду або просто відпочити на лавці і помилуватися краєвидом.',
+				embankmentTextUnderstudy: 'Набережна Пірана є популярним місцем для прогулянок, відпочинку та фотографування. Тут можна прогулятися по Старій набережній, насолодитися видом на море з Нового променаду або просто відпочити на лавці і помилуватися краєвидом.',
+
+
+
 
 			},
 
@@ -179,6 +193,17 @@ const App: React.FC = () => {
 				oldCityTitleTwo: ' Ljubljana',
 				oldCityTextOne: 'The old center of Ljubljana is a charming corner of the city that has retained its medieval atmosphere. It has narrow cobblestone streets, old buildings and cozy cafes.',
 				oldCityTextTwo: 'Walking around the old town, you can feel yourself in another era. Here you can see medieval churches and palaces, visit museums and galleries, and just relax and enjoy the atmosphere. The old center of Ljubljana is a must-see for anyone visiting the city. This is a place that will leave you with an unforgettable experience.',
+				piranIntroTitle: 'Piran: the pearl of the Adriatic Sea',
+				piranIntroTextOne: 'Piran is a small town in the southwest of Slovenia, located on the Adriatic coast. The city is known for its medieval streets, picturesque promenades and magnificent sea views.',
+				piranIntroTextTwo: 'Piran was founded in the 6th century BC and was part of the Roman Empire, the Venetian Republic and the Austro-Hungarian Empire. Today, the city is a popular tourist destination, known for its historic center, which is a UNESCO World Heritage Site.',
+				embankmentTitle: 'A city with charming promenades',
+				embankmentTextFirst: 'The Piran waterfront is one of the most popular attractions in the city. It is located in the southwest of Slovenia, on the Adriatic coast. The waterfront is a favorite place for walking, relaxing and taking pictures. The Piran waterfront is about 1.5 km long and consists of two parts: The Old Waterfront and the New Waterfront.',
+				embankmentTextSecond: ' is a historic part of the waterfront that was built in the 15th century. It is lined with stone slabs and has an arcade with shops, cafes and restaurants under it.',
+				embankmentTextSecondBold: 'The Old Quay',
+				embankmentTextThird: ' is a modern part of the waterfront that was built in the 20th century. It is paved with concrete and has a promenade with a magnificent view of the sea.',
+				embankmentTextThirdBold: 'The new embankment',
+				embankmentTextFourth: 'The Piran waterfront is a popular place for walking, relaxing and taking pictures. Here you can stroll along the Old Promenade, enjoy the sea view from the New Promenade, or just relax on a bench and admire the view.',
+				embankmentTextUnderstudy: 'The Piran waterfront is a popular place for walking, relaxing and taking pictures. Here you can stroll along the Old Promenade, enjoy the sea view from the New Promenade, or just relax on a bench and admire the view.',
 			},
 		};
 
@@ -205,7 +230,7 @@ const App: React.FC = () => {
 					<Route path="/ljubljana"
 						element={<Ljubljana getAllTextsOfSite={getAllTextsOfSite} />} />
 					<Route path="/piran"
-						element={<Piran />} /> {/* Use 'About' component here */}
+						element={<Piran getAllTextsOfSite={getAllTextsOfSite} />} />
 				</Routes>
 			</Router>
 			<Footer getAllTextsOfSite={getAllTextsOfSite} />

@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { Container, Row, Col, Card, Button, Modal } from 'react-bootstrap';
 import styled from 'styled-components';
-
+import { titleMixin } from '../Mixins/titleMixin';
+import { textSize14Mixin } from '../Mixins/textSize14Mixin';
+import { buttonMixin } from '../Mixins/buttonMixin';
 
 import Salary from '../Source/Cards/Salary.jpg';
 import Medicine from '../Source/Cards/Medicine.jpg';
@@ -29,27 +31,18 @@ const CardsStyles = styled.div`
 
 		}
 		&-title {
-			font-weight: 400 !important;
-			font-size: 18px !important;
-			color: #545151;
-			line-height: 30px !important;
+			${titleMixin};
 
 		}
 	}
-	
-	
 	&-title-box {
 		min-height: 49px;
 		
 	}
 	&-btn {
 		margin-top: 20px;
-		background-color: orange;
-		font-weight: 400;
-		font-size: 16px;
-		border: none;
+		${buttonMixin};
 		width: 160px;
-		transition: background-color 0.3s ease;
 		&:hover {
       background-color: #c48106;
 		}
@@ -69,8 +62,7 @@ const CardsStyles = styled.div`
   
 }
 .mdl-text {
-	font-weight: 400;
-	font-size: 14px;
+	${textSize14Mixin};
 	margin-top: 0;
 
 }
@@ -89,281 +81,111 @@ const CardsStyles = styled.div`
 	
 `;
 
-const Cards: React.FunctionComponent<{
+const CardsData = [
+	{
+	  title: 'cardOneTitle',
+	  imageSrc: Salary,
+	  modalText: 'cardOneModalText',
+	},
+	{
+	  title: 'cardTwoTitle',
+	  imageSrc: Medicine,
+	  modalText: 'cardTwoModalText',
+	},
+	{
+	  title: 'cardThreeTitle',
+	  imageSrc: Education,
+	  modalText: 'cardThreeModalText',
+	},
+	{
+	  title: 'cardFourTitle',
+	  imageSrc: Work,
+	  modalText: 'cardFourModalText',
+	},
+	{
+	  title: 'cardFiveTitle',
+	  imageSrc: Retired,
+	  modalText: 'cardFiveModalText',
+	},
+	{
+	  title: 'cardSixTitle',
+	  imageSrc: Lorn,
+	  modalText: 'cardSixModalText',
+	},
+ ];
+ 
+ const Cards: React.FunctionComponent<{
 	getAllTextsOfSite: (key: string) => string;
-	// eslint-disable-next-line react/prop-types
-}> = ({ getAllTextsOfSite }) => {
-
+ // eslint-disable-next-line react/prop-types
+ }> = ({ getAllTextsOfSite }) => {
 	const [show, setShow] = useState([false, false, false, false, false, false]);
-
+ 
 	const handleClose = (index: number) => {
-		const updatedShow = [...show];
-		updatedShow[index] = false;
-		setShow(updatedShow);
+	  const updatedShow = [...show];
+	  updatedShow[index] = false;
+	  setShow(updatedShow);
 	};
-
+ 
 	const handleShow = (index: number) => {
-		const updatedShow = [...show];
-		updatedShow[index] = true;
-		setShow(updatedShow);
+	  const updatedShow = [...show];
+	  updatedShow[index] = true;
+	  setShow(updatedShow);
 	};
-
+ 
 	return (
-		<CardsStyles>
-			<section className="cards">
-				<Container >
-					<h2 className="cards-title">
-						{getAllTextsOfSite('cardsTitle')}
-					</h2>
-					<Row sm={2} md={2} lg={3} className="g-4">
-						<Col>
-							<Card style={{ width: '18rem' }} >
-								<Card.Img variant="top" src={Salary} />
-								<Card.Body>
-									<div className="cards-title-box">
-										<Card.Title>{getAllTextsOfSite('cardOneTitle')}</Card.Title>
-									</div>
-									<Button
-										onClick={() => handleShow(0)}
-										className='cards-btn'>
-										{getAllTextsOfSite('cardsBtn')}
-									</Button>
-									<Modal
-										show={show[0]}
-										onHide={() => handleClose(0)}
-										size="lg"
-										aria-labelledby="contained-modal-title-vcenter"
-										centered>
-										<Modal.Header closeButton>
-											<Modal.Title className="text-center mx-auto">
-												{getAllTextsOfSite('cardOneTitle')}
-											</Modal.Title>
-										</Modal.Header>
-										<Modal.Body>
-											<Row className='cards-row'>
-												<Col>
-													<Card.Img variant="top"
-														src={Salary} /></Col>
-												<Col >
-													<div className="mdl-text">
-														{getAllTextsOfSite('cardOneModalText')}
-													</div>
-												</Col>
-											</Row>
-										</Modal.Body>
-										<Modal.Footer>
-										</Modal.Footer>
-									</Modal>
-								</Card.Body>
-							</Card>
-						</Col>
-						<Col>
-							<Card style={{ width: '18rem' }} >
-								<Card.Img variant="top" src={Medicine} />
-								<Card.Body>
-									<div className="cards-title-box">
-										<Card.Title>{getAllTextsOfSite('cardTwoTitle')}</Card.Title>
-									</div>
-									<Button
-										onClick={() => handleShow(1)}
-										className='cards-btn'>
-										{getAllTextsOfSite('cardsBtn')}
-									</Button>
-									<Modal
-										show={show[1]}
-										onHide={() => handleClose(1)}
-										size="lg"
-										aria-labelledby="contained-modal-title-vcenter"
-										centered>
-										<Modal.Header closeButton>
-											<Modal.Title className="text-center mx-auto">
-												{getAllTextsOfSite('cardTwoTitle')}
-											</Modal.Title>
-										</Modal.Header>
-										<Modal.Body>
-											<Row className='cards__row'>
-												<Col>
-													<Card.Img variant="top"
-														src={Medicine} />
-												</Col>
-												<Col >
-													<div className="mdl-text">
-														{getAllTextsOfSite('cardTwoModalText')}
-													</div>
-												</Col>
-											</Row>
-										</Modal.Body>
-										<Modal.Footer>
-										</Modal.Footer>
-									</Modal>
-								</Card.Body>
-							</Card>
-						</Col>
-						<Col >
-							<Card style={{ width: '18rem' }} >
-								<Card.Img variant="top" src={Education} />
-								<Card.Body>
-									<div className="cards-title-box">
-										<Card.Title>
-											{getAllTextsOfSite('cardThreeTitle')}
-										</Card.Title>
-									</div>
-									<Button
-										onClick={() => handleShow(2)}
-										className='cards-btn'>
-										{getAllTextsOfSite('cardsBtn')}
-									</Button>
-									<Modal
-										show={show[2]}
-										onHide={() => handleClose(2)}
-										size="lg"
-										aria-labelledby="contained-modal-title-vcenter"
-										centered>
-										<Modal.Header closeButton>
-											<Modal.Title className="text-center mx-auto">
-												{getAllTextsOfSite('cardThreeTitle')}
-											</Modal.Title>
-										</Modal.Header>
-										<Modal.Body>
-											<Row className='cards-row'>
-												<Col><Card.Img variant="top" src={Education} /></Col>
-												<Col >
-													<div className="mdl-text">
-														{getAllTextsOfSite('cardThreeModalText')}
-													</div>
-												</Col>
-											</Row>
-										</Modal.Body>
-										<Modal.Footer>
-										</Modal.Footer>
-									</Modal>
-								</Card.Body>
-							</Card>
-						</Col>
-						<Col>
-							<Card style={{ width: '18rem' }} >
-								<Card.Img variant="top" src={Work} />
-								<Card.Body>
-									<div className="cards-title-box">
-										<Card.Title>
-											{getAllTextsOfSite('cardFourTitle')}
-										</Card.Title>
-									</div>
-									<Button
-										onClick={() => handleShow(3)}
-										className='cards-btn'>
-										{getAllTextsOfSite('cardsBtn')}
-									</Button>
-									<Modal
-										show={show[3]}
-										onHide={() => handleClose(3)}
-										size="lg"
-										aria-labelledby="contained-modal-title-vcenter"
-										centered>
-										<Modal.Header closeButton>
-											<Modal.Title className="text-center mx-auto">
-												{getAllTextsOfSite('cardFourTitle')}</Modal.Title>
-										</Modal.Header>
-										<Modal.Body>
-											<Row className='cards-row'>
-												<Col><Card.Img variant="top" src={Work} /></Col>
-												<Col >
-													<div className="mdl-text">
-														{getAllTextsOfSite('cardFourModalText')}
-													</div>
-												</Col>
-											</Row>
-										</Modal.Body>
-										<Modal.Footer>
-										</Modal.Footer>
-									</Modal>
-								</Card.Body>
-							</Card>
-						</Col>
-						<Col>
-							<Card style={{ width: '18rem' }} >
-								<Card.Img variant="top" src={Retired} />
-								<Card.Body>
-									<div className="cards-title-box">
-										<Card.Title>{getAllTextsOfSite('cardFiveTitle')}</Card.Title>
-									</div>
-									<Button
-										onClick={() => handleShow(4)}
-										className='cards-btn'>
-										{getAllTextsOfSite('cardsBtn')}
-									</Button>
-									<Modal
-										show={show[4]}
-										onHide={() => handleClose(4)}
-										size="lg"
-										aria-labelledby="contained-modal-title-vcenter"
-										centered>
-										<Modal.Header closeButton>
-											<Modal.Title className="text-center mx-auto">
-												{getAllTextsOfSite('cardFiveTitle')}
-											</Modal.Title>
-										</Modal.Header>
-										<Modal.Body>
-											<Row className='cards-row'>
-												<Col>
-													<Card.Img variant="top" src={Retired} /></Col>
-												<Col >
-													<div className="mdl-text">
-														{getAllTextsOfSite('cardFiveModalText')}
-													</div>
-												</Col>
-											</Row>
-										</Modal.Body>
-										<Modal.Footer>
-										</Modal.Footer>
-									</Modal>
-								</Card.Body>
-							</Card>
-						</Col>
-						<Col>
-							<Card style={{ width: '18rem' }} >
-								<Card.Img variant="top" src={Lorn} />
-								<Card.Body>
-									<div className="cards-title-box">
-										<Card.Title>{getAllTextsOfSite('cardSixTitle')}</Card.Title>
-									</div>
-									<Button
-										onClick={() => handleShow(5)}
-										className='cards-btn'>
-										{getAllTextsOfSite('cardsBtn')}
-									</Button>
-									<Modal
-										show={show[5]}
-										onHide={() => handleClose(5)}
-										size="lg"
-										aria-labelledby="contained-modal-title-vcenter"
-										centered>
-										<Modal.Header closeButton>
-											<Modal.Title className="text-center mx-auto">
-												{getAllTextsOfSite('cardSixTitle')}
-											</Modal.Title>
-										</Modal.Header>
-										<Modal.Body>
-											<Row className='cards-row'>
-												<Col><Card.Img variant="top" src={Lorn} /></Col>
-												<Col >
-													<div className="mdl-text">
-														{getAllTextsOfSite('cardSixModalText')}
-													</div>
-												</Col>
-											</Row>
-										</Modal.Body>
-										<Modal.Footer>
-										</Modal.Footer>
-									</Modal>
-								</Card.Body>
-							</Card>
-						</Col>
-					</Row>
-				</Container>
-			</section>
-		</CardsStyles>
+	  <CardsStyles>
+		 <section className="cards">
+			<Container>
+			  <h2 className="cards-title">{getAllTextsOfSite('cardsTitle')}</h2>
+			  <Row sm={2} md={2} lg={3} className="g-4">
+				 {CardsData.map((card, index) => (
+					<Col key={index}>
+					  <Card style={{ width: '18rem' }}>
+						 <Card.Img variant="top" src={card.imageSrc} />
+						 <Card.Body>
+							<div className="cards-title-box">
+							  <Card.Title>{getAllTextsOfSite(card.title)}</Card.Title>
+							</div>
+							<Button
+							  onClick={() => handleShow(index)}
+							  className="cards-btn">
+							  {getAllTextsOfSite('cardsBtn')}
+							</Button>
+							<Modal
+							  show={show[index]}
+							  onHide={() => handleClose(index)}
+							  size="lg"
+							  aria-labelledby="contained-modal-title-vcenter"
+							  centered>
+							  <Modal.Header closeButton>
+								 <Modal.Title className="text-center mx-auto">
+									{getAllTextsOfSite(card.title)}
+								 </Modal.Title>
+							  </Modal.Header>
+							  <Modal.Body>
+								 <Row className="cards-row">
+									<Col>
+									  <Card.Img variant="top" src={card.imageSrc} />
+									</Col>
+									<Col>
+									  <div className="mdl-text">
+										 {getAllTextsOfSite(card.modalText)}
+									  </div>
+									</Col>
+								 </Row>
+							  </Modal.Body>
+							  <Modal.Footer></Modal.Footer>
+							</Modal>
+						 </Card.Body>
+					  </Card>
+					</Col>
+				 ))}
+			  </Row>
+			</Container>
+		 </section>
+	  </CardsStyles>
 	);
-};
-
-export default Cards;
+ };
+ 
+ export default Cards;
+ 

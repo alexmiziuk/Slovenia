@@ -3,21 +3,17 @@ import styled from 'styled-components';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
+import { titleMixin } from '../Mixins/titleMixin';
+import { textMixin } from '../Mixins/textMixin';
 
 import map from '../Source/img/map-slovenija.jpg'
-
-
 
 const AboutStyles = styled.div`
 .about {
 	padding: 70px 0;
 	background-color: white;
 	&-title {
-		font-weight: 600;
-		font-size: 42px;
-		text-align: center;
-		line-height: 54px;
-		color: #786f6f;
+		${titleMixin};
 	}
 	.row {
 	 padding-top: 30px;
@@ -27,8 +23,7 @@ const AboutStyles = styled.div`
 	object-fit: cover;
  }
  &-text {
-	font-weight: 400;
-	font-size: 16px;
+	${textMixin};
 	&_top {
 		padding-top: 40px;
 		}

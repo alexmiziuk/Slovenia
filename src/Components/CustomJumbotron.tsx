@@ -2,6 +2,9 @@ import React from 'react';
 import { Card, Container } from 'react-bootstrap';
 import ljubljana from '../Source/CarouselImg/Ljublana.png';
 import styled from 'styled-components';
+import { titleMixin } from '../Mixins/titleMixin';
+import { textMixin } from '../Mixins/textMixin';
+
 
 const Styles = styled.div`
 .invitation {
@@ -22,17 +25,15 @@ const Styles = styled.div`
 		z-index: -1;
 	}
 	&-title {
+		${titleMixin};
 		color: white;
-		font-weight: 600;
-		font-weight: 600;
-		line-height: 54px;
-		font-size: 42px;
+		text-align: left;
+
 	}
 	&-text {
 		margin-top: 30px;
 		color: white;
-		font-weight: 400;
-		font-size: 16px;
+		${textMixin };
 		line-height: 24px;
 		max-width: 700px;
 	}

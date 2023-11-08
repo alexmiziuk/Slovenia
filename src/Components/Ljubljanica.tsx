@@ -3,6 +3,9 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
+import { titleMixin } from '../Mixins/titleMixin';
+import { textMixin } from '../Mixins/textMixin';
+
 
 import styled from 'styled-components';
 
@@ -13,21 +16,28 @@ import riverSun from '../Source/Ljubljana/The-river-Ljubljanica.jpg';
 const LjubljanicaStyles = styled.div`
 
 .river {
+	position: relative;
 	padding: 70px 0;
 	background-color: white;
 	&-title {
-		font-weight: 600;
-		font-size: 42px;
+		${titleMixin}
 		text-align: center;
-		line-height: 54px;
-		color: #786f6f;
 	}
+	&-line {
+		position: absolute;
+		height: 2px;
+		width: 309px;
+		left: 50%;
+  		transform: translateX(-50%);
+		background-color: #0171bd;
+		top: 0px;
+	}
+	
 	&-row {
 		margin-top: 40px;
 	}
 	&-text {
-		font-weight: 400;
-		font-size: 16px;
+		${textMixin};
 		padding: 0 12px 0 12px;
 		&-top {
 			padding-top: 40px;
@@ -43,7 +53,7 @@ const LjubljanicaStyles = styled.div`
 
 @media (max-width: 991px) {
 	.river {
-		padding-top: 20px;
+		
 		&-row {
 			display: grid;
   			grid-template-columns: 1fr;
@@ -60,6 +70,14 @@ const LjubljanicaStyles = styled.div`
 			&-bottom {
 				padding-bottom: 20px;
 			}
+		}
+	}
+}
+
+@media (max-width: 576px) {
+	.river {
+		&-line {
+		width: 65%;
 		}
 	}
 }
@@ -88,10 +106,14 @@ const Ljubljanica: React.FC<{
 		<LjubljanicaStyles>
 			<section className='river'>
 				<Container fluid="md">
+					<span className='river-line'>
+					</span>
+				</Container>
+				<Container fluid="md">
 					<h2 className="river-title">{getAllTextsOfSite('LjubljanicaTitle')}</h2>
 					<Row className='river-row'>
 						<Col className='river-col-first'>
-							<Image className='river-sun' src={isDesktopOrLower ? `${river}` : `${riverSun}`} fluid rounded/>
+							<Image className='river-sun' src={isDesktopOrLower ? `${river}` : `${riverSun}`} fluid rounded />
 							<Row className="river-text river-text-top">
 								{getAllTextsOfSite('ljubljanicaTextTwoFirst')}
 								<br></br><br></br>
