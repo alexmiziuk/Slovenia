@@ -12,6 +12,8 @@ import LjubljanskijGgradCopy from '../Source/Ljubljana/Ljubljanskij-grad-copy.jp
 import LjubljanaCastleCopy from '../Source/Ljubljana/Ljubljana-Castle-copy.jpg'
 import NightOldCastle from '../Source/Ljubljana/night-old-castl.jpg';
 
+
+
 const CastleOfLjubljanaStyles = styled.div`
   .castle {
     padding: 70px 0;

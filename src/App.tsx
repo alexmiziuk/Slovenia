@@ -112,8 +112,12 @@ const App: React.FC = () => {
 				embankmentTextThirdBold: 'Нова набережна',
 				embankmentTextFourth: 'Набережна Пірана є популярним місцем для прогулянок, відпочинку та фотографування. Тут можна прогулятися по Старій набережній, насолодитися видом на море з Нового променаду або просто відпочити на лавці і помилуватися краєвидом.',
 				embankmentTextUnderstudy: 'Набережна Пірана є популярним місцем для прогулянок, відпочинку та фотографування. Тут можна прогулятися по Старій набережній, насолодитися видом на море з Нового променаду або просто відпочити на лавці і помилуватися краєвидом.',
-
-
+				wallPiranTitle: 'Кріпосна стіна Пірана',
+				wallPiranText1: 'Стіна Пірана – одна з найвизначніших та найкрасивіших кріпосних споруд Європи, яка знаходиться в місті Піран на узбережжі Словенії. Ця стіна є символом міста та його багатовікової історії. Бувши побудованою в середньовіччі, вона слугувала захистом для міста від ворожих нападів і втілювала в собі важливу оборонну функцію.',
+				wallPiranTextBold2: 'Стіна Пірана ',
+				wallPiranText2: ' вражає своєю масштабністю та майстерністю виконання. Вона простягається на висоту близько 40 метрів і має довжину приблизно 1470 метрів, охоплюючи цілий історичний центр міста. Стіна складається з кам`яних блоків, міцно складених один на одного, що надає їй величний та маєтній вигляд.',
+				wallPiranTextBold3: 'Прогулюючись вздовж цієї старовинної споруди, ',
+				wallPiranText3: ' відкривається чудовий краєвид на місто Піран, мальовничий Адріатичний берег та горизонт. Туристи можуть подивитися на залишки старовинних башт, веж і оборонних веж, які викликають захоплення своєю архітектурою та загадковістю.',
 
 
 			},
@@ -204,6 +208,12 @@ const App: React.FC = () => {
 				embankmentTextThirdBold: 'The new embankment',
 				embankmentTextFourth: 'The Piran waterfront is a popular place for walking, relaxing and taking pictures. Here you can stroll along the Old Promenade, enjoy the sea view from the New Promenade, or just relax on a bench and admire the view.',
 				embankmentTextUnderstudy: 'The Piran waterfront is a popular place for walking, relaxing and taking pictures. Here you can stroll along the Old Promenade, enjoy the sea view from the New Promenade, or just relax on a bench and admire the view.',
+				wallPiranTitle: 'Piran`s fortress wall',
+				wallPiranText1: 'The Wall of Piran is one of the most prominent and beautiful fortifications in Europe, located in the city of Piran on the coast of Slovenia. This wall is a symbol of the city and its long history. Built in the Middle Ages, it served as a protection for the city from enemy attacks and embodied an important defensive function.',
+				wallPiranTextBold2: 'The Piran Wall ',
+				wallPiranText2: 'is impressive in its scale and craftsmanship. It stretches to a height of about 40 meters and is approximately 1470 meters long, covering the entire historic center of the city. The wall consists of stone blocks firmly stacked on top of each other, which gives it a majestic and mansion-like appearance.',
+				wallPiranTextBold3: 'Walking along this ancient structure, ',
+				wallPiranText3: 'you can enjoy a magnificent view of the city of Piran, the picturesque Adriatic coast and the skyline. Tourists can look at the remains of ancient towers, towers and defensive towers that are admired for their architecture and mystery.',
 			},
 		};
 

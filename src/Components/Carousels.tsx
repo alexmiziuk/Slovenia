@@ -1,4 +1,4 @@
-import React, { CSSProperties, Component, MouseEventHandler } from 'react';
+import React, { CSSProperties, MouseEventHandler, PureComponent, memo } from 'react';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Slider from 'react-slick';
@@ -18,45 +18,7 @@ import Ptuj from '../Source/CarouselImg/Ptuj.jpg'
 import Bridge from '../Source/CarouselImg/Bridge.jpg';
 import Piran from '../Source/CarouselImg/Piran.jpg';
 
-interface ArrowProps {
-	className?: string;
-	style?: CSSProperties;
-	onClick?: MouseEventHandler;
-}
 
-function SampleNextArrow({ className, style, onClick }: ArrowProps) {
-
-	return (
-		<div
-			className={className}
-			style={{
-				...style,
-				display: 'block',
-				background: 'rgba(0, 0, 0, 0.4)',
-				width: '40px',
-				height: '40px',
-				/* borderRadius: '100%', */
-			}}
-			onClick={onClick}
-		/>
-	);
-}
-
-function SamplePrevArrow({ className, style, onClick }: ArrowProps) {
-	return (
-		<div
-			className={className}
-			style={{
-				...style,
-				display: 'block',
-				background: 'rgba(0, 0, 0, 0.4)',
-				width: '40px',
-				height: '40px',
-			}}
-			onClick={onClick}
-		/>
-	);
-}
 
 const CarouselStyles = styled.div`
 .carousel {
@@ -116,131 +78,184 @@ const CarouselStyles = styled.div`
 			}
 		
 }
-
 `;
+
+interface ArrowProps {
+	className?: string;
+	style?: CSSProperties;
+	onClick?: MouseEventHandler;
+}
+
+function propsCompareNextArrow(prevProps: ArrowProps, nextProps: ArrowProps) {
+	return prevProps.className === nextProps.className
+		&& prevProps.style === nextProps.style
+		&& prevProps.style === nextProps.style
+}
+
+const SampleNextArrow = memo(function SampleNextArrow({ className, style, onClick }: ArrowProps) {
+	return (
+		<div
+			className={className}
+			style={{
+				...style,
+				display: 'block',
+				background: 'rgba(0, 0, 0, 0.4)',
+				width: '40px',
+				height: '40px',
+				/* borderRadius: '100%', */
+			}}
+			onClick={onClick}
+		/>
+	);
+}, propsCompareNextArrow);
+
+SampleNextArrow.displayName = 'SampleNextArrow';
+
+function propsComparePrevtArrow(prevProps: ArrowProps, nextProps: ArrowProps) {
+	return prevProps.className === nextProps.className
+		&& prevProps.style === nextProps.style
+		&& prevProps.style === nextProps.style
+}
+
+const SamplePrevArrow = memo(function SamplePrevArrow({ className, style, onClick }: ArrowProps) {
+	return (
+		<div
+			className={className}
+			style={{
+				...style,
+				display: 'block',
+				background: 'rgba(0, 0, 0, 0.4)',
+				width: '40px',
+				height: '40px',
+			}}
+			onClick={onClick}
+		/>
+	);
+}, propsComparePrevtArrow);
+
 interface CarouselsProps {
 	getAllTextsOfSite: (key: string) => string;
- }
- 
- class Carousels extends Component<CarouselsProps> {
+}
+
+class Carousels extends PureComponent<CarouselsProps> {
 	settings = {
-	  dots: true,
-	  infinite: true,
-	  speed: 500,
-	  slidesToShow: 3,
-	  slidesToScroll: 1,
-	  nextArrow: <SampleNextArrow />,
-	  prevArrow: <SamplePrevArrow />,
-	  responsive: [
-		 {
-			breakpoint: 992,
-			settings: {
-			  slidesToShow: 2,
-			  slidesToScroll: 2,
-			  initialSlide: 2,
+		dots: true,
+		infinite: true,
+		speed: 500,
+		slidesToShow: 3,
+		slidesToScroll: 1,
+		nextArrow: <SampleNextArrow />,
+		prevArrow: <SamplePrevArrow />,
+		responsive: [
+			{
+				breakpoint: 992,
+				settings: {
+					slidesToShow: 2,
+					slidesToScroll: 2,
+					initialSlide: 2,
+				},
 			},
-		 },
-		 {
-			breakpoint: 576,
-			settings: {
-			  slidesToShow: 1,
-			  slidesToScroll: 1,
+			{
+				breakpoint: 576,
+				settings: {
+					slidesToShow: 1,
+					slidesToScroll: 1,
+				},
 			},
-		 },
-	  ],
+		],
 	};
- 
+
 	redirectToAnotherComponent = (link: string) => {
-	  // Относительный путь к компоненту
-	  window.location.href = link;
+		// Относительный путь к компоненту
+		window.location.href = link;
 	};
- 
+
 	renderCarouselSlide = (slideData: { imageSrc: string; link: string; buttonText: string }, index: number) => {
-	  const { getAllTextsOfSite } = this.props;
- 
-	  return (
-		 <div key={index} className="carousel-slide">
-			<img src={slideData.imageSrc} alt="" className="carousel-img" />
-			<button
-			  onClick={() => this.redirectToAnotherComponent(slideData.link)}
-			  className="carousel-btn">
-			  {getAllTextsOfSite(slideData.buttonText)}
-			</button>
-		 </div>
-	  );
+		const { getAllTextsOfSite } = this.props;
+
+		return (
+			<div key={index} className="carousel-slide">
+				<img src={slideData.imageSrc} alt="" className="carousel-img" />
+				<button
+					onClick={() => this.redirectToAnotherComponent(slideData.link)}
+					className="carousel-btn">
+					{getAllTextsOfSite(slideData.buttonText)}
+				</button>
+			</div>
+		);
 	};
- 
+
 	render() {
-	  const { getAllTextsOfSite } = this.props; // Получаем getAllTextsOfSite из пропсов
-	  const carouselData = [
-		 {
-			imageSrc: BledLake,
-			link: '#',
-			buttonText: 'carouselOneBtn',
-		 },
-		 {
-			imageSrc: Ljublana,
-			link: 'ljubljana',
-			buttonText: 'carouselTwoBtn',
-		 },
-		 {
-			imageSrc: Mountins,
-			link: '#',
-			buttonText: 'carouselThreeBtn',
-		 },
-		 {
-			imageSrc: KochevjeChurch,
-			link: '#',
-			buttonText: 'carouselFourBtn',
-		 },
-		 {
-			imageSrc: LakeNearItaly,
-			link: '#',
-			buttonText: 'carouselFiveBtn',
-		 },
-		 {
-			imageSrc: Maribor,
-			link: '#',
-			buttonText: 'carouselSixBtn',
-		 },
-		 {
-			imageSrc: Ptuj,
-			link: '#',
-			buttonText: 'carouselSevenBtn',
-		 },
-		 {
-			imageSrc: Bridge,
-			link: '#',
-			buttonText: 'carouselEightBtn',
-		 },
-		 {
-			imageSrc: Piran,
-			link: 'piran',
-			buttonText: 'carouselNineBtn',
-		 },
-	  ];
- 
-	  return (
-		 <CarouselStyles>
-			<section className="carousel">
-			  <Container>
-				 <Row>
-					<Col>
-					  <h2 className='carousel-title' id='tour'>
-						 {getAllTextsOfSite('carouselTitle')}
-					  </h2>
-					  <Slider {...this.settings}>
-						 {carouselData.map((slideData, index) =>
-							this.renderCarouselSlide(slideData, index)
-						 )}
-					  </Slider>
-					</Col>
-				 </Row>
-			  </Container>
-			</section>
-		 </CarouselStyles>
-	  );
+		const { getAllTextsOfSite } = this.props; // Получаем getAllTextsOfSite из пропсов
+		const carouselData = [
+			{
+				imageSrc: BledLake,
+				link: '#',
+				buttonText: 'carouselOneBtn',
+			},
+			{
+				imageSrc: Ljublana,
+				link: 'ljubljana',
+				buttonText: 'carouselTwoBtn',
+			},
+			{
+				imageSrc: Mountins,
+				link: '#',
+				buttonText: 'carouselThreeBtn',
+			},
+			{
+				imageSrc: KochevjeChurch,
+				link: '#',
+				buttonText: 'carouselFourBtn',
+			},
+			{
+				imageSrc: LakeNearItaly,
+				link: '#',
+				buttonText: 'carouselFiveBtn',
+			},
+			{
+				imageSrc: Maribor,
+				link: '#',
+				buttonText: 'carouselSixBtn',
+			},
+			{
+				imageSrc: Ptuj,
+				link: '#',
+				buttonText: 'carouselSevenBtn',
+			},
+			{
+				imageSrc: Bridge,
+				link: '#',
+				buttonText: 'carouselEightBtn',
+			},
+			{
+				imageSrc: Piran,
+				link: 'piran',
+				buttonText: 'carouselNineBtn',
+			},
+		];
+
+		return (
+			<CarouselStyles>
+				<section className="carousel">
+					<Container>
+						<Row>
+							<Col>
+								<h2 className='carousel-title' id='tour'>
+									{getAllTextsOfSite('carouselTitle')}
+								</h2>
+								<Slider {...this.settings}>
+									{carouselData.map((slideData, index) =>
+										this.renderCarouselSlide(slideData, index)
+									)}
+								</Slider>
+							</Col>
+						</Row>
+					</Container>
+				</section>
+			</CarouselStyles>
+		);
 	}
- }
- 
- export default Carousels;
+}
+
+export default Carousels;
