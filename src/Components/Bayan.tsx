@@ -6,7 +6,6 @@ import Image from 'react-bootstrap/Image';
 import styled from 'styled-components';
 import { titleMixin } from '../Mixins/titleMixin';
 import { textSize14Mixin } from '../Mixins/textSize14Mixin';
-import { buttonMixin } from '../Mixins/buttonMixin';
 
 
 import KranjskaKlobasa from '../Source/Accordion/Odprtakuhinja-kranjska.jpg';
