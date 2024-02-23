@@ -118,8 +118,15 @@ const App: React.FC = () => {
 				wallPiranText2: ' вражає своєю масштабністю та майстерністю виконання. Вона простягається на висоту близько 40 метрів і має довжину приблизно 1470 метрів, охоплюючи цілий історичний центр міста. Стіна складається з кам`яних блоків, міцно складених один на одного, що надає їй величний та маєтній вигляд.',
 				wallPiranTextBold3: 'Прогулюючись вздовж цієї старовинної споруди, ',
 				wallPiranText3: ' відкривається чудовий краєвид на місто Піран, мальовничий Адріатичний берег та горизонт. Туристи можуть подивитися на залишки старовинних башт, веж і оборонних веж, які викликають захоплення своєю архітектурою та загадковістю.',
-
-
+				oldPiranTitle: 'Старовинне місто Піран',
+				oldPiranStrongContentFirst: 'Старе місто Пірана',
+				oldPiranContentFirst: ' є одним із найчарівніших і наймальовничіших місць у Словенії. Оточене середньовічними стінами, воно зачаровує відвідувачів своїми вузькими вуличками, барвистими будинками та історичними пам`ятками. Тут кожен знайде щось для себе: любителі історії будуть зачаровані архітектурою, а поціновувачі природи - красою Адріатичного моря.',
+				oldPiranContentspan: 'Серцем Пірана є ',
+				oldPiranStrongContentSecond: 'площа Тартіні',
+				oldPiranContentSecond: ', названа на честь знаменитого скрипаля Джузеппе Тартіні, який народився в цьому місті. На площі розташовано безліч кафе і ресторанів, де можна розслабитися і насолодитися видом на море. Тут же варто звернути увагу на Венеціанську ратушу 15-го століття і лоджію 14-го століття.',
+			
+			
+			
 			},
 
 			english: {
@@ -214,6 +221,14 @@ const App: React.FC = () => {
 				wallPiranText2: 'is impressive in its scale and craftsmanship. It stretches to a height of about 40 meters and is approximately 1470 meters long, covering the entire historic center of the city. The wall consists of stone blocks firmly stacked on top of each other, which gives it a majestic and mansion-like appearance.',
 				wallPiranTextBold3: 'Walking along this ancient structure, ',
 				wallPiranText3: 'you can enjoy a magnificent view of the city of Piran, the picturesque Adriatic coast and the skyline. Tourists can look at the remains of ancient towers, towers and defensive towers that are admired for their architecture and mystery.',
+				oldPiranTitle: 'The ancient city of Piran',
+				oldPiranStrongContentFirst: 'The old town of Piran',
+				oldPiranContentFirst: ' is one of the most charming and picturesque places in Slovenia. Surrounded by medieval walls, it enchants visitors with its narrow streets, colorful houses and historical monuments. Everyone will find something for themselves here: history lovers will be fascinated by the architecture, and nature lovers will be fascinated by the beauty of the Adriatic Sea.',
+				oldPiranContentspan: 'The heart of Piran is ',
+				oldPiranStrongContentSecond: 'Tartini Square',
+				oldPiranContentSecond: ', is named after the famous violinist Giuseppe Tartini, who was born in this city. There are many cafes and restaurants on the square where you can relax and enjoy the sea view. It is also worth paying attention to the 15th-century Venetian Town Hall and the 14th-century Loggia.',
+			
+			
 			},
 		};
 

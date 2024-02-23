@@ -431,6 +431,9 @@ const Styles = styled.div`
 		&-modal-button-down {
 			right: 20%;
 	  }
+	  &-line {
+		width: 65%;
+	  }
 	}
 }
 

@@ -3,7 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
-import { titleMixin } from '../Mixins/titleMixin';
+
 
 import Fountain from '../Source/Ljubljana/Fontain-in-the-New-Marker-Square.jpg';
 import CentralMarketing from '../Source/Ljubljana/Central-Market.jpg';
@@ -12,6 +12,7 @@ import RibjaBridge from '../Source/Ljubljana/Ribja-brv.jpg';
 import TripleBridge from '../Source/Ljubljana/Triple-bridge.jpg';
 import CooperativBuisiness from '../Source/Ljubljana/The-cooperativ-buisiness-bank.jpg';
 import { textMixin } from '../Mixins/textMixin';
+import { titleMixin } from '../Mixins/titleMixin';
 
 import styled from 'styled-components';
 
