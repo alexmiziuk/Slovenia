@@ -1,4 +1,5 @@
-import React, { CSSProperties, MouseEventHandler, PureComponent, memo } from 'react';
+import React, { PureComponent, CSSProperties } from 'react';
+import { NavLink } from 'react-router-dom'; // BrowserRouter уже был использован в другом месте
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Slider from 'react-slick';
@@ -52,6 +53,8 @@ const CarouselStyles = styled.div`
   		color: white;
 		width: 180px;
 		transition: background-color 0.3s ease;
+		text-align: center;
+		text-decoration: none;
 		&:hover {
 			background-color: #c48106;
 		  }
@@ -83,16 +86,22 @@ const CarouselStyles = styled.div`
 interface ArrowProps {
 	className?: string;
 	style?: CSSProperties;
-	onClick?: MouseEventHandler;
+	onClick?: React.MouseEventHandler;
 }
 
 function propsCompareNextArrow(prevProps: ArrowProps, nextProps: ArrowProps) {
-	return prevProps.className === nextProps.className
-		&& prevProps.style === nextProps.style
-		&& prevProps.style === nextProps.style
+	return (
+		prevProps.className === nextProps.className &&
+		prevProps.style === nextProps.style &&
+		prevProps.style === nextProps.style
+	);
 }
 
-const SampleNextArrow = memo(function SampleNextArrow({ className, style, onClick }: ArrowProps) {
+const SampleNextArrow = React.memo(function SampleNextArrow({
+	className,
+	style,
+	onClick,
+}: ArrowProps) {
 	return (
 		<div
 			className={className}
@@ -112,12 +121,18 @@ const SampleNextArrow = memo(function SampleNextArrow({ className, style, onClic
 SampleNextArrow.displayName = 'SampleNextArrow';
 
 function propsComparePrevtArrow(prevProps: ArrowProps, nextProps: ArrowProps) {
-	return prevProps.className === nextProps.className
-		&& prevProps.style === nextProps.style
-		&& prevProps.style === nextProps.style
+	return (
+		prevProps.className === nextProps.className &&
+		prevProps.style === nextProps.style &&
+		prevProps.style === nextProps.style
+	);
 }
 
-const SamplePrevArrow = memo(function SamplePrevArrow({ className, style, onClick }: ArrowProps) {
+const SamplePrevArrow = React.memo(function SamplePrevArrow({
+	className,
+	style,
+	onClick,
+}: ArrowProps) {
 	return (
 		<div
 			className={className}
@@ -165,28 +180,24 @@ class Carousels extends PureComponent<CarouselsProps> {
 		],
 	};
 
-	redirectToAnotherComponent = (link: string) => {
-		// Относительный путь к компоненту
-		window.location.href = link;
-	};
-
-	renderCarouselSlide = (slideData: { imageSrc: string; link: string; buttonText: string }, index: number) => {
+	renderCarouselSlide = (
+		slideData: { imageSrc: string; link: string; buttonText: string },
+		index: number
+	) => {
 		const { getAllTextsOfSite } = this.props;
 
 		return (
 			<div key={index} className="carousel-slide">
 				<img src={slideData.imageSrc} alt="" className="carousel-img" />
-				<button
-					onClick={() => this.redirectToAnotherComponent(slideData.link)}
-					className="carousel-btn">
+				<NavLink to={slideData.link} className="carousel-btn">
 					{getAllTextsOfSite(slideData.buttonText)}
-				</button>
+				</NavLink>
 			</div>
 		);
 	};
 
 	render() {
-		const { getAllTextsOfSite } = this.props; // Получаем getAllTextsOfSite из пропсов
+		const { getAllTextsOfSite } = this.props;
 		const carouselData = [
 			{
 				imageSrc: BledLake,
@@ -241,7 +252,7 @@ class Carousels extends PureComponent<CarouselsProps> {
 					<Container>
 						<Row>
 							<Col>
-								<h2 className='carousel-title' id='tour'>
+								<h2 className="carousel-title" id="tour">
 									{getAllTextsOfSite('carouselTitle')}
 								</h2>
 								<Slider {...this.settings}>
