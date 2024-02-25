@@ -13,7 +13,6 @@ const Main: React.FunctionComponent<{
 
 	return (
 		<>
-			{/* <Slider /> */}
 			<Intro getAllTextsOfSite={getAllTextsOfSite} />
 			<About getAllTextsOfSite={getAllTextsOfSite} />
 			<Carousels getAllTextsOfSite={getAllTextsOfSite} />

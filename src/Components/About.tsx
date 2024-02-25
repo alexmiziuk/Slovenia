@@ -10,6 +10,7 @@ import map from '../Source/img/map-slovenija.jpg'
 
 const AboutStyles = styled.div`
 .about {
+	background-color: white;
 	padding: 70px 0;
 	background-color: white;
 	&-title {

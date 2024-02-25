@@ -20,6 +20,7 @@ const BayanStyles = styled.div`
 	padding: 70px 0 40px 0;
 	width: 90%;
 	margin: 0 auto;
+	background-color: white;
 	@media (max-width: 1400px) {
 		width: 92%;
 		}

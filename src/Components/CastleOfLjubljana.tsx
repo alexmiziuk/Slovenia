@@ -16,6 +16,7 @@ import NightOldCastle from '../Source/Ljubljana/night-old-castl.jpg';
 
 const CastleOfLjubljanaStyles = styled.div`
   .castle {
+	background-color: white;
     padding: 70px 0;
     background-color: white;
 	&-title {

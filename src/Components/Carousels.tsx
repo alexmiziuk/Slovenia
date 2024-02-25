@@ -23,6 +23,7 @@ import Piran from '../Source/CarouselImg/Piran.jpg';
 
 const CarouselStyles = styled.div`
 .carousel {
+	background-color: white;
 	padding: 70px 0;
    background-color: white;
 	&-title {
